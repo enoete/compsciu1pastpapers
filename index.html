@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CAPE CS Unit 1 – Paper 2 Study Guide (Light Mode + Mock Test)</title>
+<title>CAPE CS Unit 1 – Paper 2 Study Guide (2017–2023)</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:wght@700&display=swap');
 
@@ -21,17 +21,15 @@
     --green: #2f8f46;
     --purple: #7a52cc;
     --blue: #2d6cdf;
-    --shadow: 0 10px 28px rgba(25, 42, 70, 0.08);
-    --shadow-soft: 0 4px 14px rgba(25, 42, 70, 0.06);
-
-    /* Section colors */
+    --shadow: 0 10px 28px rgba(25,42,70,0.08);
+    --shadow-soft: 0 4px 14px rgba(25,42,70,0.06);
+    --repeat: #e05b00;
     --arch: #0f9d87;
     --prob: #d85868;
     --prog: #7a52cc;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
-
   html { scroll-behavior: smooth; }
 
   body {
@@ -45,9 +43,8 @@
     line-height: 1.7;
   }
 
-  /* HEADER */
   header {
-    background: linear-gradient(135deg, #ffffff 0%, #f7fbff 45%, #eef8f4 100%);
+    background: linear-gradient(135deg,#ffffff 0%,#f7fbff 45%,#eef8f4 100%);
     border-bottom: 1px solid var(--border);
     padding: 52px 32px 32px;
     text-align: center;
@@ -55,522 +52,301 @@
     overflow: hidden;
   }
   header::before {
-    content: '';
-    position: absolute;
-    top: -50px; left: -60px; right: -60px; bottom: -50px;
+    content:'';
+    position:absolute;top:-50px;left:-60px;right:-60px;bottom:-50px;
     background:
-      radial-gradient(ellipse 55% 45% at 15% 0%, rgba(45,108,223,0.10) 0%, transparent 70%),
-      radial-gradient(ellipse 45% 35% at 85% 10%, rgba(15,157,135,0.12) 0%, transparent 68%);
-    pointer-events: none;
+      radial-gradient(ellipse 55% 45% at 15% 0%,rgba(45,108,223,0.10) 0%,transparent 70%),
+      radial-gradient(ellipse 45% 35% at 85% 10%,rgba(15,157,135,0.12) 0%,transparent 68%);
+    pointer-events:none;
   }
   header .badge {
-    display: inline-block;
-    font-family: 'Space Mono', monospace;
-    font-size: 11px;
-    color: var(--blue);
-    border: 1px solid rgba(45,108,223,0.25);
-    background: rgba(45,108,223,0.07);
-    padding: 4px 12px;
-    border-radius: 999px;
-    letter-spacing: 1px;
-    margin-bottom: 14px;
-    position: relative;
-    z-index: 1;
+    display:inline-block;font-family:'Space Mono',monospace;font-size:11px;
+    color:var(--blue);border:1px solid rgba(45,108,223,0.25);background:rgba(45,108,223,0.07);
+    padding:4px 12px;border-radius:999px;letter-spacing:1px;margin-bottom:14px;position:relative;z-index:1;
   }
   header h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(28px, 5vw, 48px);
-    color: var(--text);
-    margin-bottom: 10px;
-    position: relative;
-    z-index: 1;
+    font-family:'Playfair Display',serif;font-size:clamp(28px,5vw,48px);
+    color:var(--text);margin-bottom:10px;position:relative;z-index:1;
   }
-  header h1 span { color: var(--accent); }
-  header p {
-    color: var(--muted);
-    font-size: 15px;
-    max-width: 720px;
-    margin: 0 auto 22px;
-    position: relative;
-    z-index: 1;
-  }
+  header h1 span { color:var(--accent); }
+  header p { color:var(--muted);font-size:15px;max-width:740px;margin:0 auto 22px;position:relative;z-index:1; }
 
   .summary-strip {
-    max-width: 980px;
-    margin: 24px auto 0;
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 14px;
-    position: relative;
-    z-index: 1;
+    max-width:1020px;margin:24px auto 0;
+    display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px;
+    position:relative;z-index:1;
   }
   .summary-card {
-    background: rgba(255,255,255,0.82);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 14px 16px;
-    box-shadow: var(--shadow-soft);
-    text-align: left;
-    backdrop-filter: blur(8px);
+    background:rgba(255,255,255,0.82);border:1px solid var(--border);border-radius:16px;
+    padding:14px 16px;box-shadow:var(--shadow-soft);text-align:left;backdrop-filter:blur(8px);
   }
-  .summary-card strong {
-    display: block;
-    font-size: 20px;
-    color: var(--text);
-    margin-bottom: 2px;
+  .summary-card strong { display:block;font-size:20px;color:var(--text);margin-bottom:2px; }
+  .summary-card span { font-size:12px;color:var(--muted); }
+
+  /* REPEAT BANNER */
+  .repeat-badge {
+    display:inline-flex;align-items:center;gap:5px;
+    font-family:'Space Mono',monospace;font-size:10px;font-weight:700;letter-spacing:0.5px;
+    background:rgba(224,91,0,0.12);color:var(--repeat);border:1px solid rgba(224,91,0,0.3);
+    padding:3px 10px;border-radius:999px;flex-shrink:0;
   }
-  .summary-card span {
-    font-size: 12px;
-    color: var(--muted);
+  .repeat-badge::before { content:'🔁'; font-size:10px; }
+
+  .repeat-strip {
+    max-width:1080px;margin:24px auto 0;
+    background:linear-gradient(135deg,rgba(224,91,0,0.07),rgba(224,91,0,0.03));
+    border:1px solid rgba(224,91,0,0.25);border-radius:18px;padding:18px 22px;
+    position:relative;z-index:1;
   }
+  .repeat-strip h3 {
+    font-family:'Space Mono',monospace;font-size:12px;color:var(--repeat);
+    letter-spacing:1px;margin-bottom:12px;
+  }
+  .repeat-grid {
+    display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:8px;
+  }
+  .repeat-item {
+    background:rgba(255,255,255,0.7);border:1px solid rgba(224,91,0,0.18);border-radius:10px;
+    padding:8px 12px;font-size:12.5px;
+  }
+  .repeat-item strong { display:block;color:var(--repeat);font-size:11px;font-family:'Space Mono',monospace;margin-bottom:2px; }
 
   /* TOOLBAR */
-  .toolbar {
-    max-width: 1180px;
-    margin: 24px auto 0;
-    padding: 0 20px;
-  }
+  .toolbar { max-width:1180px;margin:24px auto 0;padding:0 20px; }
   .toolbar-inner {
-    background: rgba(255,255,255,0.92);
-    border: 1px solid var(--border);
-    border-radius: 18px;
-    box-shadow: var(--shadow-soft);
-    padding: 14px;
-    display: grid;
-    grid-template-columns: 1.1fr auto auto;
-    gap: 12px;
-    align-items: center;
+    background:rgba(255,255,255,0.92);border:1px solid var(--border);border-radius:18px;
+    box-shadow:var(--shadow-soft);padding:14px;
+    display:grid;grid-template-columns:1.1fr auto auto;gap:12px;align-items:center;
   }
-  .search-wrap {
-    position: relative;
-  }
+  .search-wrap { position:relative; }
   .search-wrap input {
-    width: 100%;
-    border: 1px solid var(--border);
-    background: var(--surface3);
-    border-radius: 12px;
-    padding: 12px 14px 12px 42px;
-    font: inherit;
-    color: var(--text);
-    outline: none;
+    width:100%;border:1px solid var(--border);background:var(--surface3);border-radius:12px;
+    padding:12px 14px 12px 42px;font:inherit;color:var(--text);outline:none;
   }
-  .search-wrap input:focus {
-    border-color: rgba(45,108,223,0.45);
-    box-shadow: 0 0 0 3px rgba(45,108,223,0.12);
-  }
-  .search-wrap::before {
-    content: '⌕';
-    position: absolute;
-    left: 14px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: var(--muted);
-    font-size: 18px;
-  }
-  .toolbar-actions {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-    justify-content: flex-end;
-  }
+  .search-wrap input:focus { border-color:rgba(45,108,223,0.45);box-shadow:0 0 0 3px rgba(45,108,223,0.12); }
+  .search-wrap::before { content:'⌕';position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--muted);font-size:18px; }
+  .toolbar-actions { display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end; }
   .toolbar-btn {
-    border: 1px solid var(--border);
-    background: var(--surface);
-    color: var(--text);
-    border-radius: 12px;
-    padding: 11px 14px;
-    font: inherit;
-    cursor: pointer;
-    transition: 0.2s ease;
-    box-shadow: var(--shadow-soft);
+    border:1px solid var(--border);background:var(--surface);color:var(--text);border-radius:12px;
+    padding:11px 14px;font:inherit;cursor:pointer;transition:0.2s ease;box-shadow:var(--shadow-soft);
   }
-  .toolbar-btn:hover {
-    transform: translateY(-1px);
-    border-color: rgba(45,108,223,0.35);
-  }
+  .toolbar-btn:hover { transform:translateY(-1px);border-color:rgba(45,108,223,0.35); }
 
   /* YEAR TABS */
   .year-nav {
-    display: flex;
-    justify-content: center;
-    gap: 8px;
-    flex-wrap: wrap;
-    margin-top: 18px;
-    position: relative;
-    z-index: 1;
+    display:flex;justify-content:center;gap:8px;flex-wrap:wrap;
+    margin-top:18px;position:relative;z-index:1;
   }
   .year-btn {
-    font-family: 'Space Mono', monospace;
-    font-size: 12px;
-    padding: 8px 16px;
-    border: 1px solid var(--border);
-    background: rgba(255,255,255,0.88);
-    color: var(--muted);
-    border-radius: 999px;
-    cursor: pointer;
-    transition: all 0.2s;
-    box-shadow: var(--shadow-soft);
+    font-family:'Space Mono',monospace;font-size:12px;padding:8px 16px;
+    border:1px solid var(--border);background:rgba(255,255,255,0.88);color:var(--muted);
+    border-radius:999px;cursor:pointer;transition:all 0.2s;box-shadow:var(--shadow-soft);
   }
-  .year-btn.active, .year-btn:hover {
-    background: var(--accent);
-    border-color: var(--accent);
-    color: #fff;
-  }
-  .year-btn.all { border-color: rgba(184,132,0,0.28); color: var(--accent3); }
-  .year-btn.all.active, .year-btn.all:hover { background: var(--accent3); color: #fff; border-color: var(--accent3); }
+  .year-btn.active,.year-btn:hover { background:var(--accent);border-color:var(--accent);color:#fff; }
+  .year-btn.all { border-color:rgba(184,132,0,0.28);color:var(--accent3); }
+  .year-btn.all.active,.year-btn.all:hover { background:var(--accent3);color:#fff;border-color:var(--accent3); }
 
   /* SECTION NAV */
   .section-nav {
-    display: flex;
-    gap: 6px;
-    border: 1px solid var(--border);
-    background: rgba(255,255,255,0.88);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    overflow-x: auto;
-    width: min(1180px, calc(100% - 24px));
-    margin: 18px auto 0;
-    border-radius: 18px;
-    padding: 6px;
-    box-shadow: var(--shadow-soft);
-    backdrop-filter: blur(10px);
+    display:flex;gap:6px;border:1px solid var(--border);background:rgba(255,255,255,0.88);
+    position:sticky;top:0;z-index:100;overflow-x:auto;
+    width:min(1180px,calc(100% - 24px));margin:18px auto 0;
+    border-radius:18px;padding:6px;box-shadow:var(--shadow-soft);backdrop-filter:blur(10px);
   }
   .sec-btn {
-    font-family: 'Space Mono', monospace;
-    font-size: 11px;
-    padding: 12px 18px;
-    border: none;
-    background: transparent;
-    color: var(--muted);
-    cursor: pointer;
-    border-radius: 12px;
-    transition: all 0.2s;
-    white-space: nowrap;
-    letter-spacing: 0.5px;
+    font-family:'Space Mono',monospace;font-size:11px;padding:12px 18px;
+    border:none;background:transparent;color:var(--muted);cursor:pointer;border-radius:12px;
+    transition:all 0.2s;white-space:nowrap;letter-spacing:0.5px;
   }
-  .sec-btn[data-sec="A"].active, .sec-btn[data-sec="A"]:hover { color: #fff; background: var(--arch); }
-  .sec-btn[data-sec="B"].active, .sec-btn[data-sec="B"]:hover { color: #fff; background: var(--prob); }
-  .sec-btn[data-sec="C"].active, .sec-btn[data-sec="C"]:hover { color: #fff; background: var(--prog); }
-  .sec-btn.all-sec.active, .sec-btn.all-sec:hover { color: #fff; background: var(--accent3); }
+  .sec-btn[data-sec="A"].active,.sec-btn[data-sec="A"]:hover { color:#fff;background:var(--arch); }
+  .sec-btn[data-sec="B"].active,.sec-btn[data-sec="B"]:hover { color:#fff;background:var(--prob); }
+  .sec-btn[data-sec="C"].active,.sec-btn[data-sec="C"]:hover { color:#fff;background:var(--prog); }
+  .sec-btn.all-sec.active,.sec-btn.all-sec:hover { color:#fff;background:var(--accent3); }
 
-  /* MAIN */
-  main { max-width: 1080px; margin: 0 auto; padding: 28px 20px 96px; }
+  main { max-width:1080px;margin:0 auto;padding:28px 20px 96px; }
 
   .intro-note {
-    background: linear-gradient(135deg, #ffffff, #f8fbff);
-    border: 1px solid var(--border);
-    border-left: 5px solid var(--blue);
-    border-radius: 18px;
-    padding: 18px 20px;
-    margin-bottom: 26px;
-    box-shadow: var(--shadow-soft);
+    background:linear-gradient(135deg,#ffffff,#f8fbff);border:1px solid var(--border);
+    border-left:5px solid var(--blue);border-radius:18px;padding:18px 20px;margin-bottom:26px;box-shadow:var(--shadow-soft);
   }
-  .intro-note strong { color: var(--blue); }
+  .intro-note strong { color:var(--blue); }
 
   /* TOPIC GROUP */
-  .topic-group,
-  .mock-test-section {
-    margin-bottom: 42px;
-    background: rgba(255,255,255,0.72);
-    border: 1px solid rgba(215,224,234,0.9);
-    border-radius: 24px;
-    padding: 22px;
-    box-shadow: var(--shadow-soft);
+  .topic-group,.mock-test-section {
+    margin-bottom:42px;background:rgba(255,255,255,0.72);
+    border:1px solid rgba(215,224,234,0.9);border-radius:24px;padding:22px;box-shadow:var(--shadow-soft);
   }
   .topic-header {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 18px;
-    padding-bottom: 12px;
-    border-bottom: 1px solid var(--border);
+    display:flex;align-items:center;gap:12px;margin-bottom:18px;
+    padding-bottom:12px;border-bottom:1px solid var(--border);
   }
-  .topic-icon {
-    width: 38px; height: 38px;
-    border-radius: 12px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 18px;
-    flex-shrink: 0;
-  }
-  .topic-title {
-    font-family: 'Space Mono', monospace;
-    font-size: 12px;
-    letter-spacing: 1px;
-    font-weight: 700;
-  }
-  .topic-desc {
-    font-size: 12px;
-    color: var(--muted);
-    margin-left: auto;
-  }
+  .topic-icon { width:38px;height:38px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0; }
+  .topic-title { font-family:'Space Mono',monospace;font-size:12px;letter-spacing:1px;font-weight:700; }
+  .topic-desc { font-size:12px;color:var(--muted);margin-left:auto; }
 
-  /* QUESTION CARD */
+  /* Q CARD */
   .q-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    margin-bottom: 14px;
-    overflow: hidden;
-    transition: 0.2s ease;
-    box-shadow: var(--shadow-soft);
+    background:var(--surface);border:1px solid var(--border);border-radius:16px;
+    margin-bottom:14px;overflow:hidden;transition:0.2s ease;box-shadow:var(--shadow-soft);
   }
-  .q-card:hover { border-color: rgba(45,108,223,0.35); transform: translateY(-1px); }
-  .q-card[data-sec="A"]:hover { border-color: rgba(15,157,135,0.45); }
-  .q-card[data-sec="B"]:hover { border-color: rgba(216,88,104,0.45); }
-  .q-card[data-sec="C"]:hover { border-color: rgba(122,82,204,0.45); }
+  .q-card:hover { border-color:rgba(45,108,223,0.35);transform:translateY(-1px); }
+  .q-card[data-sec="A"]:hover { border-color:rgba(15,157,135,0.45); }
+  .q-card[data-sec="B"]:hover { border-color:rgba(216,88,104,0.45); }
+  .q-card[data-sec="C"]:hover { border-color:rgba(122,82,204,0.45); }
+  .q-card.repeat-q { border-left:3px solid rgba(224,91,0,0.5); }
 
-  .q-header {
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-    padding: 16px 18px;
-    cursor: pointer;
-    user-select: none;
-  }
+  .q-header { display:flex;align-items:flex-start;gap:12px;padding:16px 18px;cursor:pointer;user-select:none; }
   .q-num {
-    font-family: 'Space Mono', monospace;
-    font-size: 10px;
-    padding: 5px 9px;
-    border-radius: 999px;
-    flex-shrink: 0;
-    margin-top: 2px;
-    font-weight: 700;
+    font-family:'Space Mono',monospace;font-size:10px;padding:5px 9px;border-radius:999px;
+    flex-shrink:0;margin-top:2px;font-weight:700;
   }
-  [data-sec="A"] .q-num { background: rgba(15,157,135,0.12); color: var(--arch); }
-  [data-sec="B"] .q-num { background: rgba(216,88,104,0.12); color: var(--prob); }
-  [data-sec="C"] .q-num { background: rgba(122,82,204,0.12); color: var(--prog); }
+  [data-sec="A"] .q-num { background:rgba(15,157,135,0.12);color:var(--arch); }
+  [data-sec="B"] .q-num { background:rgba(216,88,104,0.12);color:var(--prob); }
+  [data-sec="C"] .q-num { background:rgba(122,82,204,0.12);color:var(--prog); }
 
-  .q-text { flex: 1; font-size: 14.5px; line-height: 1.7; }
-  .q-meta {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    flex-shrink: 0;
-    margin-top: 2px;
-  }
-  .marks-badge {
-    font-family: 'Space Mono', monospace;
-    font-size: 10px;
-    color: var(--accent3);
-    background: rgba(184,132,0,0.10);
-    padding: 3px 8px;
-    border-radius: 999px;
-  }
-  .year-tag {
-    font-family: 'Space Mono', monospace;
-    font-size: 10px;
-    color: var(--muted);
-    background: var(--surface2);
-    padding: 3px 8px;
-    border-radius: 999px;
-  }
-  .toggle-icon {
-    font-size: 18px;
-    color: var(--muted);
-    transition: transform 0.25s;
-    flex-shrink: 0;
-  }
-  .q-card.open .toggle-icon { transform: rotate(90deg); }
+  .q-text { flex:1;font-size:14.5px;line-height:1.7; }
+  .q-meta { display:flex;align-items:center;gap:8px;flex-shrink:0;margin-top:2px;flex-wrap:wrap;justify-content:flex-end; }
+  .marks-badge { font-family:'Space Mono',monospace;font-size:10px;color:var(--accent3);background:rgba(184,132,0,0.10);padding:3px 8px;border-radius:999px; }
+  .year-tag { font-family:'Space Mono',monospace;font-size:10px;color:var(--muted);background:var(--surface2);padding:3px 8px;border-radius:999px; }
+  .toggle-icon { font-size:18px;color:var(--muted);transition:transform 0.25s;flex-shrink:0; }
+  .q-card.open .toggle-icon { transform:rotate(90deg); }
 
-  /* PANELS */
-  .q-panels { display: none; padding: 0 18px 18px; }
-  .q-card.open .q-panels { display: block; }
+  .q-panels { display:none;padding:0 18px 18px; }
+  .q-card.open .q-panels { display:block; }
 
-  .panel {
-    border-radius: 14px;
-    margin-top: 10px;
-    overflow: hidden;
-    border: 1px solid transparent;
-  }
+  .panel { border-radius:14px;margin-top:10px;overflow:hidden;border:1px solid transparent; }
   .panel-header {
-    padding: 11px 14px;
-    font-family: 'Space Mono', monospace;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    user-select: none;
+    padding:11px 14px;font-family:'Space Mono',monospace;font-size:11px;font-weight:700;
+    letter-spacing:0.5px;cursor:pointer;display:flex;align-items:center;gap:8px;user-select:none;
   }
-  .panel-header span { flex: 1; }
-  .panel-header .arrow { transition: transform 0.2s; }
-  .panel.open .panel-header .arrow { transform: rotate(180deg); }
-  .panel-body { display: none; padding: 14px 15px 15px; font-size: 13.5px; line-height: 1.75; }
-  .panel.open .panel-body { display: block; }
+  .panel-header span { flex:1; }
+  .panel-header .arrow { transition:transform 0.2s; }
+  .panel.open .panel-header .arrow { transform:rotate(180deg); }
+  .panel-body { display:none;padding:14px 15px 15px;font-size:13.5px;line-height:1.75; }
+  .panel.open .panel-body { display:block; }
 
-  .hint-panel { border-color: rgba(184,132,0,0.22); }
-  .hint-panel .panel-header { background: rgba(184,132,0,0.10); color: var(--accent3); }
-  .hint-panel .panel-body { background: rgba(184,132,0,0.04); border-top: 1px solid rgba(184,132,0,0.16); }
+  .hint-panel { border-color:rgba(184,132,0,0.22); }
+  .hint-panel .panel-header { background:rgba(184,132,0,0.10);color:var(--accent3); }
+  .hint-panel .panel-body { background:rgba(184,132,0,0.04);border-top:1px solid rgba(184,132,0,0.16); }
 
-  .answer-panel { border-color: rgba(47,143,70,0.22); }
-  .answer-panel .panel-header { background: rgba(47,143,70,0.10); color: var(--green); }
-  .answer-panel .panel-body { background: rgba(47,143,70,0.04); border-top: 1px solid rgba(47,143,70,0.16); }
+  .answer-panel { border-color:rgba(47,143,70,0.22); }
+  .answer-panel .panel-header { background:rgba(47,143,70,0.10);color:var(--green); }
+  .answer-panel .panel-body { background:rgba(47,143,70,0.04);border-top:1px solid rgba(47,143,70,0.16); }
 
-  .note-panel { border-color: rgba(45,108,223,0.22); }
-  .note-panel .panel-header { background: rgba(45,108,223,0.10); color: var(--blue); }
-  .note-panel .panel-body { background: rgba(45,108,223,0.04); border-top: 1px solid rgba(45,108,223,0.16); }
+  .note-panel { border-color:rgba(45,108,223,0.22); }
+  .note-panel .panel-header { background:rgba(45,108,223,0.10);color:var(--blue); }
+  .note-panel .panel-body { background:rgba(45,108,223,0.04);border-top:1px solid rgba(45,108,223,0.16); }
 
-  /* CODE BLOCKS */
-  pre, code {
-    font-family: 'Space Mono', monospace;
-    font-size: 12px;
-    background: #f4f7fb;
-    border: 1px solid var(--border);
-    border-radius: 8px;
-  }
-  pre { padding: 12px; overflow-x: auto; line-height: 1.65; margin: 10px 0; }
-  code { padding: 1px 5px; }
+  .repeat-panel { border-color:rgba(224,91,0,0.22); }
+  .repeat-panel .panel-header { background:rgba(224,91,0,0.10);color:var(--repeat); }
+  .repeat-panel .panel-body { background:rgba(224,91,0,0.04);border-top:1px solid rgba(224,91,0,0.16); }
 
-  /* TRUTH TABLE */
-  table {
-    border-collapse: collapse;
-    margin: 10px 0;
-    font-family: 'Space Mono', monospace;
-    font-size: 12px;
-    width: max-content;
-    max-width: 100%;
-  }
-  th, td {
-    border: 1px solid var(--border);
-    padding: 7px 14px;
-    text-align: center;
-  }
-  th { background: var(--surface2); color: var(--blue); }
-  tr:nth-child(even) td { background: rgba(45,108,223,0.03); }
+  pre,code { font-family:'Space Mono',monospace;font-size:12px;background:#f4f7fb;border:1px solid var(--border);border-radius:8px; }
+  pre { padding:12px;overflow-x:auto;line-height:1.65;margin:10px 0; }
+  code { padding:1px 5px; }
 
-  /* ALGO STEPS */
+  table { border-collapse:collapse;margin:10px 0;font-family:'Space Mono',monospace;font-size:12px;width:max-content;max-width:100%; }
+  th,td { border:1px solid var(--border);padding:7px 14px;text-align:center; }
+  th { background:var(--surface2);color:var(--blue); }
+  tr:nth-child(even) td { background:rgba(45,108,223,0.03); }
+
   .algo {
-    font-family: 'Space Mono', monospace;
-    font-size: 12px;
-    background: #f4f7fb;
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 12px;
-    line-height: 1.8;
-    margin: 8px 0;
-    white-space: pre-wrap;
+    font-family:'Space Mono',monospace;font-size:12px;background:#f4f7fb;border:1px solid var(--border);
+    border-radius:8px;padding:12px;line-height:1.8;margin:8px 0;white-space:pre-wrap;
   }
 
-  ul.hint-list, ul.answer-list, ol.mock-list {
-    padding-left: 20px;
-    margin: 6px 0;
-  }
-  ul.hint-list li, ul.answer-list li, ol.mock-list li { margin-bottom: 6px; }
+  ul.hint-list,ul.answer-list,ol.mock-list { padding-left:20px;margin:6px 0; }
+  ul.hint-list li,ul.answer-list li,ol.mock-list li { margin-bottom:6px; }
 
-  .highlight { color: var(--blue); font-weight: 700; }
-  .warn { color: var(--accent2); font-weight: 600; }
-  .em { color: var(--accent3); font-weight: 700; }
+  .highlight { color:var(--blue);font-weight:700; }
+  .warn { color:var(--accent2);font-weight:600; }
+  .em { color:var(--accent3);font-weight:700; }
+  .rep { color:var(--repeat);font-weight:700; }
 
-  /* HIDDEN by filter */
-  .q-card.hidden, .mock-test-section.hidden { display: none; }
-  .topic-group.hidden { display: none; }
+  .q-card.hidden,.mock-test-section.hidden,.topic-group.hidden { display:none; }
 
-  /* MOCK TEST */
-  .mock-test-section {
-    background: linear-gradient(135deg, #ffffff, #f8fcff 55%, #f7fcf9 100%);
-  }
-  .mock-meta {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 12px;
-    margin-bottom: 16px;
-  }
-  .mock-chip {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    padding: 12px 14px;
-    box-shadow: var(--shadow-soft);
-  }
-  .mock-chip strong { display: block; font-size: 13px; color: var(--text); margin-bottom: 4px; }
-  .mock-chip span { font-size: 12px; color: var(--muted); }
+  .mock-test-section { background:linear-gradient(135deg,#ffffff,#f8fcff 55%,#f7fcf9 100%); }
+  .mock-meta { display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-bottom:16px; }
+  .mock-chip { background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:12px 14px;box-shadow:var(--shadow-soft); }
+  .mock-chip strong { display:block;font-size:13px;color:var(--text);margin-bottom:4px; }
+  .mock-chip span { font-size:12px;color:var(--muted); }
 
-  /* PROGRESS BAR */
   .progress-bar {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: rgba(255,255,255,0.96);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 12px 16px;
-    font-family: 'Space Mono', monospace;
-    font-size: 11px;
-    color: var(--muted);
-    z-index: 200;
-    box-shadow: var(--shadow);
+    position:fixed;bottom:20px;right:20px;background:rgba(255,255,255,0.96);
+    border:1px solid var(--border);border-radius:16px;padding:12px 16px;
+    font-family:'Space Mono',monospace;font-size:11px;color:var(--muted);z-index:200;box-shadow:var(--shadow);
   }
-  .progress-bar span { color: var(--blue); font-weight: 700; }
+  .progress-bar span { color:var(--blue);font-weight:700; }
 
-  /* DIVIDER */
-  hr { border: none; border-top: 1px solid var(--border); margin: 32px 0; }
+  hr { border:none;border-top:1px solid var(--border);margin:32px 0; }
+  strong { color:var(--text); }
+  em { color:var(--accent3);font-style:normal; }
+  mark { background:rgba(255,232,138,0.75);color:inherit;padding:0 2px;border-radius:4px; }
 
-  strong { color: var(--text); }
-  em { color: var(--accent3); font-style: normal; }
-  mark {
-    background: rgba(255, 232, 138, 0.75);
-    color: inherit;
-    padding: 0 2px;
-    border-radius: 4px;
+  @media (max-width:900px) {
+    .summary-strip { grid-template-columns:repeat(3,1fr); }
+    .mock-meta,.toolbar-inner { grid-template-columns:1fr 1fr; }
+    .toolbar-actions { grid-column:1/-1;justify-content:flex-start; }
   }
-
-  @media (max-width: 900px) {
-    .summary-strip,
-    .mock-meta,
-    .toolbar-inner {
-      grid-template-columns: 1fr 1fr;
-    }
-    .toolbar-actions { grid-column: 1 / -1; justify-content: flex-start; }
+  @media (max-width:700px) {
+    .summary-strip,.mock-meta,.toolbar-inner { grid-template-columns:1fr; }
+    .q-header { flex-wrap:wrap; }
+    .q-meta { width:100%;justify-content:flex-start; }
   }
-
-  @media (max-width: 700px) {
-    .summary-strip,
-    .mock-meta,
-    .toolbar-inner {
-      grid-template-columns: 1fr;
-    }
-    .q-header { flex-wrap: wrap; }
-    .q-meta { width: 100%; justify-content: flex-start; }
+  @media (max-width:600px) {
+    header { padding:36px 16px 28px; }
+    main { padding:22px 14px 96px; }
+    .topic-group,.mock-test-section { padding:16px;border-radius:18px; }
+    .section-nav { top:6px; }
+    .progress-bar { left:14px;right:14px;bottom:12px;text-align:center; }
   }
-
-  @media (max-width: 600px) {
-    header { padding: 36px 16px 28px; }
-    main { padding: 22px 14px 96px; }
-    .topic-group, .mock-test-section { padding: 16px; border-radius: 18px; }
-    .section-nav { top: 6px; }
-    .progress-bar { left: 14px; right: 14px; bottom: 12px; text-align: center; }
-  }
-
 </style>
 </head>
 <body>
 
 <header>
   <div class="badge">CAPE · COMPUTER SCIENCE · UNIT 1</div>
-  <h1>Paper 2 Study Guide <span>2017–2021</span></h1>
-  <p>All six sections from the 2017, 2018 and 2021 exams — now refreshed in light mode, cleaned up for readability, and extended with a fresh mock test at the end.</p>
+  <h1>Paper 2 Study Guide <span>2017–2023</span></h1>
+  <p>All six sections from the 2017, 2018, 2021, 2022 and 2023 exams — with highlighted repeat topics so you can focus your revision where it matters most.</p>
   <div class="summary-strip">
-    <div class="summary-card"><strong>3</strong><span>exam years included</span></div>
-    <div class="summary-card"><strong>Section A–C</strong><span>architecture, problem solving, programming</span></div>
-    <div class="summary-card"><strong>Hints + Answers</strong><span>open only what you need while revising</span></div>
-    <div class="summary-card"><strong>New Mock Test</strong><span>extra practice based on recurring patterns</span></div>
+    <div class="summary-card"><strong>5</strong><span>exam years (2017–2023)</span></div>
+    <div class="summary-card"><strong>A – C</strong><span>Architecture, Problem Solving, Programming</span></div>
+    <div class="summary-card"><strong>Hints + Answers</strong><span>open only what you need</span></div>
+    <div class="summary-card"><strong>🔁 Repeat Flags</strong><span>topics appearing 3+ times</span></div>
+    <div class="summary-card"><strong>Mock Test</strong><span>updated with 2022–23 patterns</span></div>
   </div>
   <div class="year-nav">
-    <button class="year-btn all active" >ALL YEARS</button>
-    <button class="year-btn" >2017</button>
-    <button class="year-btn" >2018</button>
-    <button class="year-btn" >2021</button>
+    <button class="year-btn all active">ALL YEARS</button>
+    <button class="year-btn">2017</button>
+    <button class="year-btn">2018</button>
+    <button class="year-btn">2021</button>
+    <button class="year-btn">2022</button>
+    <button class="year-btn">2023</button>
   </div>
 </header>
 
+<!-- REPEAT TOPICS PANEL -->
+<div class="repeat-strip" style="margin:18px auto 0;padding:18px 22px;">
+  <h3>🔁 HIGH-PROBABILITY REPEAT TOPICS — appeared in 3 or more years</h3>
+  <div class="repeat-grid">
+    <div class="repeat-item"><strong>NUMBER REPRESENTATION (5/5 years)</strong>Two's complement, floating point, signed magnitude — always on the paper.</div>
+    <div class="repeat-item"><strong>LOGIC GATES / TRUTH TABLES (5/5 years)</strong>Circuit diagram → truth table, or expression → table. Never skipped.</div>
+    <div class="repeat-item"><strong>CPU ARCHITECTURE (5/5 years)</strong>Registers, cache, FDE cycle, memory types — always examined.</div>
+    <div class="repeat-item"><strong>ALGORITHM PROPERTIES &amp; ERRORS (4/5 years)</strong>"State THREE properties" or "identify errors" appears almost every year.</div>
+    <div class="repeat-item"><strong>COMPILER vs INTERPRETER (4/5 years)</strong>Differences or description asked in 2017, 2018, 2021, 2023.</div>
+    <div class="repeat-item"><strong>C STRUCTS (4/5 years)</strong>Declare struct, instantiate variables, read/write fields — 2017, 2018, 2022, 2023.</div>
+    <div class="repeat-item"><strong>C FUNCTIONS with ARRAYS (4/5 years)</strong>Write a function that loops an array — 2017, 2021, 2022, 2023.</div>
+    <div class="repeat-item"><strong>FLOWCHARTS (3/5 years)</strong>Draw or trace flowcharts — 2018, 2021, 2022.</div>
+    <div class="repeat-item"><strong>ITERATION TYPES (3/5 years)</strong>Bounded vs unbounded; WHILE vs FOR — 2021, 2022, 2023.</div>
+    <div class="repeat-item"><strong>PROGRAMMING STYLE (3/5 years)</strong>"State TWO ways to maintain good style" — 2017, 2022, 2023.</div>
+  </div>
+</div>
+
 <nav class="section-nav">
-  <button class="sec-btn all-sec active" data-sec="ALL" >ALL SECTIONS</button>
-  <button class="sec-btn" data-sec="A" >▶ SECTION A — Architecture</button>
-  <button class="sec-btn" data-sec="B" >▶ SECTION B — Problem Solving</button>
-  <button class="sec-btn" data-sec="C" >▶ SECTION C — Programming</button>
+  <button class="sec-btn all-sec active" data-sec="ALL">ALL SECTIONS</button>
+  <button class="sec-btn" data-sec="A">▶ SECTION A — Architecture</button>
+  <button class="sec-btn" data-sec="B">▶ SECTION B — Problem Solving</button>
+  <button class="sec-btn" data-sec="C">▶ SECTION C — Programming</button>
 </nav>
 
 <div class="toolbar">
@@ -590,1676 +366,1532 @@
 </div>
 
 <main>
-<div class="intro-note"><strong>Study tip:</strong> Start with <em>ALL YEARS</em>, filter by section, then search for weak areas like <code>two's complement</code>, <code>trace table</code>, <code>compiler</code>, or <code>logic gate</code>. When you finish, try the new mock test without opening the answers first.</div>
+<div class="intro-note"><strong>Study tip:</strong> Focus first on topics marked 🔁 — they appear almost every year and are your safest marks. Then search for weak areas like <code>two's complement</code>, <code>truth table</code>, <code>struct</code>, or <code>compiler</code>. Tackle the mock test last, closed-book.</div>
 
-<!-- ============================================================ -->
-<!-- SECTION A: COMPUTER ARCHITECTURE -->
-<!-- ============================================================ -->
+<!-- ============================================================ SECTION A ============================================================ -->
 
 <div class="topic-group" data-sec="A" id="tg-numrep">
   <div class="topic-header">
     <div class="topic-icon" style="background:rgba(0,212,170,0.15);">🔢</div>
     <div>
       <div class="topic-title" style="color:var(--arch);">NUMBER REPRESENTATION</div>
-      <div style="font-size:12px;color:var(--muted);">Two's complement · Signed magnitude · One's complement · Floating point</div>
+      <div style="font-size:12px;color:var(--muted);">Two's complement · Signed magnitude · One's complement · Floating point · Hexadecimal</div>
     </div>
-    <div class="topic-desc">Section A</div>
+    <div class="topic-desc">Section A &nbsp;<span class="repeat-badge">5/5 YEARS</span></div>
   </div>
 
-  <!-- Q1a 2017 -->
-  <div class="q-card" data-sec="A" data-year="2017">
+  <!-- 2017 Q1a -->
+  <div class="q-card repeat-q" data-sec="A" data-year="2017">
     <div class="q-header" onclick="toggle(this.parentElement)">
       <div class="q-num">Q1a</div>
       <div class="q-text">State the largest positive integer and the largest negative integer that can be stored using <strong>eight bits</strong> with two's complement representation. <em>[2 marks]</em></div>
-      <div class="q-meta"><span class="marks-badge">2 marks</span><span class="year-tag">2017</span><span class="toggle-icon">›</span></div>
+      <div class="q-meta"><span class="marks-badge">2 marks</span><span class="year-tag">2017</span><span class="repeat-badge">REPEAT</span><span class="toggle-icon">›</span></div>
     </div>
     <div class="q-panels">
-      <div class="panel hint-panel">
-        <div class="panel-header" onclick="togglePanel(this.parentElement)"><span>💡 Hint</span><span class="arrow">▾</span></div>
-        <div class="panel-body">
-          <ul class="hint-list">
-            <li>With <em>n</em> bits in two's complement: range is <strong>−2<sup>n−1</sup></strong> to <strong>+2<sup>n−1</sup> − 1</strong></li>
-            <li>For 8 bits: n = 8, so compute 2<sup>7</sup> = 128</li>
-            <li>Positive max: all bits 0 except sign bit → <code>01111111</code></li>
-            <li>Negative min: only sign bit 1 → <code>10000000</code></li>
-          </ul>
-        </div>
-      </div>
       <div class="panel answer-panel">
         <div class="panel-header" onclick="togglePanel(this.parentElement)"><span>✓ Full Answer</span><span class="arrow">▾</span></div>
         <div class="panel-body">
-          <strong>Largest positive integer:</strong> <code>01111111</code><sub>2</sub> = <span class="highlight">+127</span><br>
-          <strong>Largest negative integer:</strong> <code>10000000</code><sub>2</sub> = <span class="warn">−128</span><br><br>
-          <em>Formula:</em> Range = −2<sup>7</sup> to 2<sup>7</sup> − 1 = −128 to +127
+          Range = −2<sup>7</sup> to 2<sup>7</sup>−1 = <span class="warn">−128</span> to <span class="highlight">+127</span><br>
+          Largest positive: <code>01111111</code> = +127 &nbsp;|&nbsp; Largest negative: <code>10000000</code> = −128
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Q1b 2017 – floating point -->
-  <div class="q-card" data-sec="A" data-year="2017">
+  <!-- 2017 Q1b floating point -->
+  <div class="q-card repeat-q" data-sec="A" data-year="2017">
     <div class="q-header" onclick="toggle(this.parentElement)">
       <div class="q-num">Q1b</div>
-      <div class="q-text">Consider a floating point representation: 1 sign bit, 3 bits for the exponent, 4 bits for the mantissa. Determine the decimal representation of <strong>10111011</strong>. <em>[4 marks]</em></div>
-      <div class="q-meta"><span class="marks-badge">4 marks</span><span class="year-tag">2017</span><span class="toggle-icon">›</span></div>
+      <div class="q-text">Floating point: 1 sign bit, 3 exponent bits, 4 mantissa bits. Find the decimal value of <strong>10111011</strong>. <em>[4 marks]</em></div>
+      <div class="q-meta"><span class="marks-badge">4 marks</span><span class="year-tag">2017</span><span class="repeat-badge">REPEAT</span><span class="toggle-icon">›</span></div>
     </div>
     <div class="q-panels">
-      <div class="panel hint-panel">
-        <div class="panel-header" onclick="togglePanel(this.parentElement)"><span>💡 Hint</span><span class="arrow">▾</span></div>
-        <div class="panel-body">
-          <ul class="hint-list">
-            <li>Break the 8 bits: Sign=1 bit | Exponent=next 3 bits | Mantissa=last 4 bits</li>
-            <li>Sign bit = 1 → number is <span class="warn">negative</span></li>
-            <li>Exponent bits in two's complement → find decimal exponent value</li>
-            <li>Mantissa: binary point is implied before the first mantissa bit (normalised form)</li>
-            <li>Value = (−1)<sup>sign</sup> × 0.mantissa × 2<sup>exponent</sup></li>
-          </ul>
-        </div>
-      </div>
       <div class="panel answer-panel">
         <div class="panel-header" onclick="togglePanel(this.parentElement)"><span>✓ Full Answer</span><span class="arrow">▾</span></div>
         <div class="panel-body">
-          Breakdown: <code>1 | 011 | 1011</code><br>
-          Sign = <span class="warn">1</span> (negative)<br>
-          Exponent = <code>011</code><sub>2</sub> = <span class="highlight">3</span> (unsigned)<br>
-          Mantissa = <code>1011</code> → value = 0.1011<sub>2</sub> = ½ + 0 + ⅛ + 1/16 = 0.6875<br><br>
-          Value = −0.6875 × 2<sup>3</sup> = −0.6875 × 8 = <span class="warn">−5.5</span>
+          Break: <code>1 | 011 | 1011</code>&nbsp; Sign=1 (negative), Exponent=011=3, Mantissa=0.1011=0.6875<br>
+          Value = −0.6875 × 2³ = <span class="warn">−5.5</span>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Q1d 2018 – signed mag / 1s comp / 2s comp of -11 -->
-  <div class="q-card" data-sec="A" data-year="2018">
+  <!-- 2018 Q1d -->
+  <div class="q-card repeat-q" data-sec="A" data-year="2018">
     <div class="q-header" onclick="toggle(this.parentElement)">
       <div class="q-num">Q1d</div>
-      <div class="q-text">For the value <strong>−11</strong>, determine the equivalent 8-bit representation for: (i) signed magnitude, (ii) one's complement, (iii) two's complement. <em>[6 marks]</em></div>
-      <div class="q-meta"><span class="marks-badge">6 marks</span><span class="year-tag">2018</span><span class="toggle-icon">›</span></div>
+      <div class="q-text">For <strong>−11</strong>, give 8-bit: (i) signed magnitude, (ii) one's complement, (iii) two's complement. <em>[6 marks]</em></div>
+      <div class="q-meta"><span class="marks-badge">6 marks</span><span class="year-tag">2018</span><span class="repeat-badge">REPEAT</span><span class="toggle-icon">›</span></div>
     </div>
     <div class="q-panels">
-      <div class="panel hint-panel">
-        <div class="panel-header" onclick="togglePanel(this.parentElement)"><span>💡 Hint</span><span class="arrow">▾</span></div>
-        <div class="panel-body">
-          <ul class="hint-list">
-            <li>Start: +11 in binary = <code>00001011</code></li>
-            <li><strong>Signed magnitude:</strong> just flip the sign bit → first bit becomes 1</li>
-            <li><strong>One's complement:</strong> flip ALL bits of +11</li>
-            <li><strong>Two's complement:</strong> flip all bits of +11, then add 1</li>
-          </ul>
-        </div>
-      </div>
       <div class="panel answer-panel">
         <div class="panel-header" onclick="togglePanel(this.parentElement)"><span>✓ Full Answer</span><span class="arrow">▾</span></div>
         <div class="panel-body">
-          +11 = <code>00001011</code><br><br>
-          <strong>(i) Signed magnitude:</strong> <code class="highlight">10001011</code><br>
-          (flip only the sign bit)<br><br>
-          <strong>(ii) One's complement:</strong> <code class="highlight">11110100</code><br>
-          (flip every bit of 00001011)<br><br>
-          <strong>(iii) Two's complement:</strong><br>
-          One's comp = <code>11110100</code><br>
-          Add 1 → <code class="highlight">11110101</code>
+          +11 = <code>00001011</code><br>
+          (i) Signed magnitude: <code class="highlight">10001011</code><br>
+          (ii) One's complement: <code class="highlight">11110100</code><br>
+          (iii) Two's complement: 11110100 + 1 = <code class="highlight">11110101</code>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Q1b 2021 – sign magnitude range -->
+  <!-- 2021 Q1b sign magnitude range -->
   <div class="q-card" data-sec="A" data-year="2021">
     <div class="q-header" onclick="toggle(this.parentElement)">
       <div class="q-num">Q1b</div>
-      <div class="q-text">State the <strong>range of integers</strong> with 8 bits using <strong>sign magnitude</strong> representation. <em>[2 marks]</em></div>
+      <div class="q-text">State the <strong>range</strong> with 8 bits using <strong>sign magnitude</strong>. <em>[2 marks]</em></div>
       <div class="q-meta"><span class="marks-badge">2 marks</span><span class="year-tag">2021</span><span class="toggle-icon">›</span></div>
     </div>
     <div class="q-panels">
-      <div class="panel hint-panel">
-        <div class="panel-header" onclick="togglePanel(this.parentElement)"><span>💡 Hint</span><span class="arrow">▾</span></div>
-        <div class="panel-body">
-          In sign magnitude, 1 bit is the sign and 7 bits represent the magnitude.<br>
-          Max magnitude with 7 bits = 2<sup>7</sup>−1 = 127.<br>
-          <span class="warn">Note:</span> there are two representations of zero (+0 and −0).
-        </div>
-      </div>
       <div class="panel answer-panel">
         <div class="panel-header" onclick="togglePanel(this.parentElement)"><span>✓ Full Answer</span><span class="arrow">▾</span></div>
-        <div class="panel-body">
-          Range: <span class="warn">−127</span> to <span class="highlight">+127</span><br>
-          (Note: sign magnitude has two representations of zero: <code>00000000</code> and <code>10000000</code>)
-        </div>
+        <div class="panel-body"><span class="warn">−127</span> to <span class="highlight">+127</span> (two representations of zero: 00000000 and 10000000)</div>
       </div>
     </div>
   </div>
 
-  <!-- Q1c 2021 – two's complement of -126 -->
-  <div class="q-card" data-sec="A" data-year="2021">
+  <!-- 2021 Q1c overflow -->
+  <div class="q-card repeat-q" data-sec="A" data-year="2021">
     <div class="q-header" onclick="toggle(this.parentElement)">
-      <div class="q-num">Q1c(i–ii)</div>
-      <div class="q-text">The binary sequence <code>01111110</code> equals decimal 126. (i) Show the steps to find the 8-bit two's complement of −126. (ii) Explain what happens when a computer evaluates <strong>(−126 − 3)</strong> in 8-bit two's complement. <em>[7 marks]</em></div>
-      <div class="q-meta"><span class="marks-badge">7 marks</span><span class="year-tag">2021</span><span class="toggle-icon">›</span></div>
+      <div class="q-num">Q1c</div>
+      <div class="q-text">(i) Show the 8-bit two's complement of −126. (ii) Explain what happens when a computer evaluates <strong>(−126 − 3)</strong> in 8-bit two's complement. <em>[7 marks]</em></div>
+      <div class="q-meta"><span class="marks-badge">7 marks</span><span class="year-tag">2021</span><span class="repeat-badge">REPEAT</span><span class="toggle-icon">›</span></div>
     </div>
     <div class="q-panels">
-      <div class="panel hint-panel">
-        <div class="panel-header" onclick="togglePanel(this.parentElement)"><span>💡 Hint</span><span class="arrow">▾</span></div>
-        <div class="panel-body">
-          <ul class="hint-list">
-            <li>Two's complement of −126: flip all bits of 01111110, then add 1</li>
-            <li>For part (ii): −126 + (−3) needs two's complement of −3 also</li>
-            <li>−129 is outside 8-bit two's complement range (−128 to +127) → <span class="warn">overflow!</span></li>
-            <li>When adding, look at the carry into and out of the sign bit</li>
-          </ul>
-        </div>
-      </div>
       <div class="panel answer-panel">
         <div class="panel-header" onclick="togglePanel(this.parentElement)"><span>✓ Full Answer</span><span class="arrow">▾</span></div>
         <div class="panel-body">
-          <strong>(i) Two's complement of −126:</strong><br>
-          +126 = <code>01111110</code><br>
-          Flip bits → <code>10000001</code><br>
-          Add 1 → <code class="highlight">10000010</code> = −126 ✓<br><br>
-          <strong>(ii) Evaluating −126 − 3:</strong><br>
-          −126 = <code>10000010</code><br>
-          −3: +3 = <code>00000011</code>, flip = <code>11111100</code>, +1 = <code>11111101</code><br>
-          Add:<br>
-<pre>  10000010
-+ 11111101
-----------
-  01111111  (with carry out of sign bit)</pre>
-          Result = <code>01111111</code> = +127<br><br>
-          <span class="warn">This is incorrect!</span> −126 − 3 should be −129, which is <strong>outside the range</strong> of 8-bit two's complement (−128 to +127). An <em>overflow</em> has occurred — the carry into the sign bit ≠ carry out of the sign bit, so the result is wrong.
+          (i) +126=<code>01111110</code> → flip → <code>10000001</code> → +1 → <code class="highlight">10000010</code><br><br>
+          (ii) −126=<code>10000010</code>, −3=<code>11111101</code>. Sum = <code>01111111</code> = +127 but true answer is −129.<br>
+          <span class="warn">Overflow</span> occurs — −129 is outside the 8-bit two's complement range (−128 to +127).
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Q1d 2021 floating point -->
+  <!-- 2021 Q1d floating point -->
   <div class="q-card" data-sec="A" data-year="2021">
     <div class="q-header" onclick="toggle(this.parentElement)">
       <div class="q-num">Q1d</div>
-      <div class="q-text">Write the decimal value represented by <code>10110101</code> if it stores a floating point number with a <strong>1-bit sign, 4-bit mantissa, 3-bit exponent</strong>. Binary point is immediately to the left of the mantissa. <em>[5 marks]</em></div>
+      <div class="q-text">Decode <code>10110101</code> as: 1-bit sign, 4-bit mantissa, 3-bit exponent. Binary point is left of mantissa. <em>[5 marks]</em></div>
       <div class="q-meta"><span class="marks-badge">5 marks</span><span class="year-tag">2021</span><span class="toggle-icon">›</span></div>
     </div>
     <div class="q-panels">
-      <div class="panel hint-panel">
-        <div class="panel-header" onclick="togglePanel(this.parentElement)"><span>💡 Hint</span><span class="arrow">▾</span></div>
-        <div class="panel-body">
-          Format: Sign(1) | Mantissa(4) | Exponent(3)<br>
-          Breakdown of <code>10110101</code>: sign=1, mantissa=0110, exponent=101<br>
-          Exponent 101 in two's complement = … convert carefully (3-bit signed)<br>
-          Binary point is to the LEFT of mantissa, so mantissa = 0.mmmm<sub>2</sub>
-        </div>
-      </div>
       <div class="panel answer-panel">
         <div class="panel-header" onclick="togglePanel(this.parentElement)"><span>✓ Full Answer</span><span class="arrow">▾</span></div>
         <div class="panel-body">
           Break: <code>1 | 0110 | 101</code><br>
-          Sign = <span class="warn">1</span> (negative)<br>
-          Mantissa = <code>0110</code> → 0.0110<sub>2</sub> = 0×½ + 1×¼ + 1×⅛ + 0×1/16 = 0.375<br>
-          Exponent = <code>101</code> in 3-bit two's complement:<br>
-          &nbsp;&nbsp;101 → flip → 010, add 1 → 011 = 3 → exponent = −3<br><br>
-          Value = −0.375 × 2<sup>−3</sup> = −0.375 ÷ 8 = <span class="warn">−0.046875</span>
+          Sign=1 (neg), Mantissa=0.0110=0.375, Exponent=101 → flip=010 +1=011=3 → exp=−3<br>
+          Value = −0.375 × 2<sup>−3</sup> = <span class="warn">−0.046875</span>
         </div>
       </div>
     </div>
   </div>
 
-</div><!-- end topic-group numrep -->
+  <!-- 2022 Q1c hex A9 -->
+  <div class="q-card repeat-q" data-sec="A" data-year="2022">
+    <div class="q-header" onclick="toggle(this.parentElement)">
+      <div class="q-num">Q1c</div>
+      <div class="q-text">(i) Convert hexadecimal <strong>A9</strong> to binary. (ii) Treating your answer as an 8-bit <strong>two's complement</strong> number, convert it to decimal. <em>[5 marks]</em></div>
+      <div class="q-meta"><span class="marks-badge">5 marks</span><span class="year-tag">2022</span><span class="repeat-badge">REPEAT</span><span class="toggle-icon">›</span></div>
+    </div>
+    <div class="q-panels">
+      <div class="panel hint-panel">
+        <div class="panel-header" onclick="togglePanel(this.parentElement)"><span>💡 Hint</span><span class="arrow">▾</span></div>
+        <div class="panel-body">A=1010, 9=1001. Concatenate for 8-bit binary. The MSB is 1 → negative number in two's complement. To find the value: flip bits, add 1, negate.</div>
+      </div>
+      <div class="panel answer-panel">
+        <div class="panel-header" onclick="togglePanel(this.parentElement)"><span>✓ Full Answer</span><span class="arrow">▾</span></div>
+        <div class="panel-body">
+          (i) A=1010, 9=1001 → <code class="highlight">10101001</code><br><br>
+          (ii) MSB=1 → negative. Flip: <code>01010110</code>, add 1: <code>01010111</code> = 64+16+4+2+1 = 87<br>
+          Therefore A9<sub>16</sub> as two's complement = <span class="warn">−87</span>
+        </div>
+      </div>
+    </div>
+  </div>
 
-<!-- ---- TOPIC: LOGIC GATES ---- -->
+  <!-- 2023 Q2c floating point encode -->
+  <div class="q-card repeat-q" data-sec="A" data-year="2023">
+    <div class="q-header" onclick="toggle(this.parentElement)">
+      <div class="q-num">Q2c</div>
+      <div class="q-text">Calculate the binary floating point representation of <strong>5.50</strong> using 1-bit sign, 3-bit exponent, 5-bit mantissa. Show all working. <em>[4 marks]</em></div>
+      <div class="q-meta"><span class="marks-badge">4 marks</span><span class="year-tag">2023</span><span class="repeat-badge">REPEAT</span><span class="toggle-icon">›</span></div>
+    </div>
+    <div class="q-panels">
+      <div class="panel hint-panel">
+        <div class="panel-header" onclick="togglePanel(this.parentElement)"><span>💡 Hint</span><span class="arrow">▾</span></div>
+        <div class="panel-body">
+          5.50 in binary = 101.1. Normalise: binary point immediately left of mantissa → 0.10110 × 2³.<br>
+          Sign=0 (positive), Exponent=3 in 3-bit = 011, Mantissa=10110.
+        </div>
+      </div>
+      <div class="panel answer-panel">
+        <div class="panel-header" onclick="togglePanel(this.parentElement)"><span>✓ Full Answer</span><span class="arrow">▾</span></div>
+        <div class="panel-body">
+          5.50 = 101.1<sub>2</sub> = 0.10110 × 2<sup>3</sup> (normalised, binary point before first significant digit)<br>
+          Sign = <span class="highlight">0</span> (positive)<br>
+          Exponent = 3 = <span class="highlight">011</span><br>
+          Mantissa = <span class="highlight">10110</span><br><br>
+          Full representation: <code class="highlight">0 011 10110</code>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2023 Q2d two's complement of -11 -->
+  <div class="q-card repeat-q" data-sec="A" data-year="2023">
+    <div class="q-header" onclick="toggle(this.parentElement)">
+      <div class="q-num">Q2d</div>
+      <div class="q-text">Find the 8-bit two's complement of <strong>−11</strong>. Show all working. <em>[3 marks]</em></div>
+      <div class="q-meta"><span class="marks-badge">3 marks</span><span class="year-tag">2023</span><span class="repeat-badge">REPEAT</span><span class="toggle-icon">›</span></div>
+    </div>
+    <div class="q-panels">
+      <div class="panel answer-panel">
+        <div class="panel-header" onclick="togglePanel(this.parentElement)"><span>✓ Full Answer</span><span class="arrow">▾</span></div>
+        <div class="panel-body">
+          +11 = <code>00001011</code><br>
+          Flip all bits → <code>11110100</code><br>
+          Add 1 → <code class="highlight">11110101</code> = −11 in 8-bit two's complement ✓
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end numrep -->
+
+<!-- LOGIC GATES -->
 <div class="topic-group" data-sec="A" id="tg-logic">
   <div class="topic-header">
     <div class="topic-icon" style="background:rgba(0,212,170,0.15);">⚡</div>
     <div>
       <div class="topic-title" style="color:var(--arch);">LOGIC GATES &amp; CIRCUITS</div>
-      <div style="font-size:12px;color:var(--muted);">Truth tables · Boolean expressions · Circuit diagrams · Multiplexers</div>
+      <div style="font-size:12px;color:var(--muted);">Truth tables · Boolean expressions · Circuit diagrams · Flip-flops · Multiplexers</div>
     </div>
-    <div class="topic-desc">Section A</div>
+    <div class="topic-desc">Section A &nbsp;<span class="repeat-badge">5/5 YEARS</span></div>
   </div>
 
-  <!-- Q1c 2017 truth table x AND NOT y -->
+  <!-- 2017 truth table x AND NOT y -->
   <div class="q-card" data-sec="A" data-year="2017">
     <div class="q-header" onclick="toggle(this.parentElement)">
       <div class="q-num">Q1c</div>
-      <div class="q-text">Draw the truth table for the logic expression <strong>x · y′</strong> (i.e. x AND NOT y). <em>[4 marks]</em></div>
+      <div class="q-text">Draw the truth table for <strong>x · y′</strong> (x AND NOT y). <em>[4 marks]</em></div>
       <div class="q-meta"><span class="marks-badge">4 marks</span><span class="year-tag">2017</span><span class="toggle-icon">›</span></div>
+    </div>
+    <div class="q-panels">
+      <div class="panel answer-panel">
+        <div class="panel-header" onclick="togglePanel(this.parentElement)"><span>✓ Full Answer</span><span class="arrow">▾</span></div>
+        <div class="panel-body">
+          <table><tr><th>x</th><th>y</th><th>y′</th><th>x·y′</th></tr><tr><td>0</td><td>0</td><td>1</td><td>0</td></tr><tr><td>0</td><td>1</td><td>0</td><td>0</td></tr><tr><td>1</td><td>0</td><td>1</td><td class="highlight">1</td></tr><tr><td>1</td><td>1</td><td>0</td><td>0</td></tr></table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2018 Q1a circuit truth table -->
+  <div class="q-card repeat-q" data-sec="A" data-year="2018">
+    <div class="q-header" onclick="toggle(this.parentElement)">
+      <div class="q-num">Q1a</div>
+      <div class="q-text">Construct the truth table for the circuit: X→NOT→AND with Y gives E; Y→NOT gives F; E OR F gives Z. List all inputs. <em>[7 marks]</em></div>
+      <div class="q-meta"><span class="marks-badge">7 marks</span><span class="year-tag">2018</span><span class="repeat-badge">REPEAT</span><span class="toggle-icon">›</span></div>
+    </div>
+    <div class="q-panels">
+      <div class="panel answer-panel">
+        <div class="panel-header" onclick="togglePanel(this.parentElement)"><span>✓ Full Answer</span><span class="arrow">▾</span></div>
+        <div class="panel-body">
+          Z = (¬X ∧ Y) ∨ ¬Y
+          <table><tr><th>X</th><th>Y</th><th>¬X</th><th>¬Y</th><th>¬X∧Y</th><th>Z</th></tr><tr><td>0</td><td>0</td><td>1</td><td>1</td><td>0</td><td class="highlight">1</td></tr><tr><td>0</td><td>1</td><td>1</td><td>0</td><td>1</td><td class="highlight">1</td></tr><tr><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td><td class="highlight">1</td></tr><tr><td>1</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td></tr></table>
+          Equivalent to NAND(X,Y).
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2021 Q1a basic gates + NAND + XOR -->
+  <div class="q-card repeat-q" data-sec="A" data-year="2021">
+    <div class="q-header" onclick="toggle(this.parentElement)">
+      <div class="q-num">Q1a</div>
+      <div class="q-text">Draw truth tables for the THREE basic logic gates. Draw truth table for NOT(X AND Y). Write the logic expression for XOR. <em>[8 marks]</em></div>
+      <div class="q-meta"><span class="marks-badge">8 marks</span><span class="year-tag">2021</span><span class="repeat-badge">REPEAT</span><span class="toggle-icon">›</span></div>
+    </div>
+    <div class="q-panels">
+      <div class="panel answer-panel">
+        <div class="panel-header" onclick="togglePanel(this.parentElement)"><span>✓ Full Answer</span><span class="arrow">▾</span></div>
+        <div class="panel-body">
+          AND: output 1 only when both inputs 1. &nbsp;OR: output 1 when at least one input 1. &nbsp;NOT: inverts.<br><br>
+          NAND: <table><tr><th>X</th><th>Y</th><th>¬(X∧Y)</th></tr><tr><td>0</td><td>0</td><td class="highlight">1</td></tr><tr><td>0</td><td>1</td><td class="highlight">1</td></tr><tr><td>1</td><td>0</td><td class="highlight">1</td></tr><tr><td>1</td><td>1</td><td>0</td></tr></table><br>
+          XOR expression: <code class="highlight">Z = X·Y′ + X′·Y</code>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2022 Q1a SR flip-flop -->
+  <div class="q-card" data-sec="A" data-year="2022">
+    <div class="q-header" onclick="toggle(this.parentElement)">
+      <div class="q-num">Q1a</div>
+      <div class="q-text">Using logic gates, draw a clearly labelled diagram of a <strong>SR flip-flop</strong>. <em>[4 marks]</em></div>
+      <div class="q-meta"><span class="marks-badge">4 marks</span><span class="year-tag">2022</span><span class="toggle-icon">›</span></div>
     </div>
     <div class="q-panels">
       <div class="panel hint-panel">
         <div class="panel-header" onclick="togglePanel(this.parentElement)"><span>💡 Hint</span><span class="arrow">▾</span></div>
-        <div class="panel-body">
-          List all 4 combinations of x and y (00,01,10,11). For each row compute y′ (NOT y) then x AND y′. Output is 1 only when x=1 AND y=0.
-        </div>
+        <div class="panel-body">An SR flip-flop uses two cross-coupled NAND (or NOR) gates. S=Set, R=Reset, Q and Q̄ are the outputs. The feedback loops are key: Q̄ feeds back into the S-gate, Q feeds back into the R-gate.</div>
       </div>
       <div class="panel answer-panel">
         <div class="panel-header" onclick="togglePanel(this.parentElement)"><span>✓ Full Answer</span><span class="arrow">▾</span></div>
         <div class="panel-body">
-          <table>
-            <tr><th>x</th><th>y</th><th>y′</th><th>x · y′</th></tr>
-            <tr><td>0</td><td>0</td><td>1</td><td>0</td></tr>
-            <tr><td>0</td><td>1</td><td>0</td><td>0</td></tr>
-            <tr><td>1</td><td>0</td><td>1</td><td class="highlight">1</td></tr>
-            <tr><td>1</td><td>1</td><td>0</td><td>0</td></tr>
-          </table>
+          <strong>SR Flip-Flop using NAND gates:</strong>
+<pre>S ──┬── [NAND] ──── Q
+    │       ↑
+    │       └──── (feedback from Q̄)
+    │
+R ──┬── [NAND] ──── Q̄
+    │       ↑
+    └───────┘ (feedback from Q)
+</pre>
+          Truth table:<br>
+          <table><tr><th>S</th><th>R</th><th>Q</th><th>Q̄</th><th>State</th></tr>
+          <tr><td>0</td><td>0</td><td colspan="2">Invalid</td><td>Forbidden</td></tr>
+          <tr><td>0</td><td>1</td><td>1</td><td>0</td><td>Set</td></tr>
+          <tr><td>1</td><td>0</td><td>0</td><td>1</td><td>Reset</td></tr>
+          <tr><td>1</td><td>1</td><td class="highlight">Q</td><td>Q̄</td><td>Hold (no change)</td></tr></table>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Q1a 2018 – truth table for circuit with NOT and AND and OR -->
-  <div class="q-card" data-sec="A" data-year="2018">
+  <!-- 2022 Q1b circuit truth table -->
+  <div class="q-card repeat-q" data-sec="A" data-year="2022">
     <div class="q-header" onclick="toggle(this.parentElement)">
-      <div class="q-num">Q1a</div>
-      <div class="q-text">Construct the truth table for the circuit in Figure 1: X feeds a NOT gate and an AND gate; Y feeds the AND gate and a NOT gate; the AND output and NOT-Y output feed an OR gate producing Z. List all possible input bit patterns and corresponding outputs. <em>[7 marks]</em></div>
-      <div class="q-meta"><span class="marks-badge">7 marks</span><span class="year-tag">2018</span><span class="toggle-icon">›</span></div>
+      <div class="q-num">Q1b</div>
+      <div class="q-text">Construct the truth table for the circuit: A→NOT(C), A∧B→AND gate→E(NOT), B→OR→D(NOT); (NOT E) AND (NOT D) → Z. Show all intermediate steps. <em>[6 marks]</em></div>
+      <div class="q-meta"><span class="marks-badge">6 marks</span><span class="year-tag">2022</span><span class="repeat-badge">REPEAT</span><span class="toggle-icon">›</span></div>
     </div>
     <div class="q-panels">
       <div class="panel note-panel">
         <div class="panel-header" onclick="togglePanel(this.parentElement)"><span>📐 Circuit Analysis</span><span class="arrow">▾</span></div>
         <div class="panel-body">
-          From the diagram: Z = (X̄ AND Y) OR (Ȳ)<br>
-          Intermediate: A = NOT X, B = NOT Y, C = A AND Y = X̄·Y, Z = C OR B = X̄·Y + Ȳ
-        </div>
-      </div>
-      <div class="panel hint-panel">
-        <div class="panel-header" onclick="togglePanel(this.parentElement)"><span>💡 Hint</span><span class="arrow">▾</span></div>
-        <div class="panel-body">
-          For each of the 4 rows, compute: NOT X, NOT Y, (NOT X) AND Y, then OR the result with NOT Y.
+          From Figure 1: C = NOT(A), E = NOT(C AND B) = NOT(NOT(A) AND B) = NAND(NOT A, B)<br>
+          D = NOT(A OR B)<br>
+          Z = E AND D ... but reading the diagram again carefully:<br>
+          C = NOT A; E = C AND B = NOT(A) AND B; D = NOT B; Z = NAND(E, F) where F = NOT(D)=B<br>
+          Most likely reading: Z = ¬(¬A·B) · ¬(A∨B) combined through an OR then NAND.<br>
+          <em>Note: Without the original Figure 1, candidates should label intermediates clearly and follow the logic step by step.</em>
         </div>
       </div>
       <div class="panel answer-panel">
-        <div class="panel-header" onclick="togglePanel(this.parentElement)"><span>✓ Full Answer</span><span class="arrow">▾</span></div>
+        <div class="panel-header" onclick="togglePanel(this.parentElement)"><span>✓ Full Answer (general approach)</span><span class="arrow">▾</span></div>
         <div class="panel-body">
-          Expression: Z = (¬X ∧ Y) ∨ ¬Y
-          <table>
-            <tr><th>X</th><th>Y</th><th>¬X</th><th>¬Y</th><th>¬X∧Y</th><th>Z</th></tr>
-            <tr><td>0</td><td>0</td><td>1</td><td>1</td><td>0</td><td class="highlight">1</td></tr>
-            <tr><td>0</td><td>1</td><td>1</td><td>0</td><td>1</td><td class="highlight">1</td></tr>
-            <tr><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td><td class="highlight">1</td></tr>
-            <tr><td>1</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-          </table>
-          Z is essentially <em>NAND(X,Y)</em> — output is 1 for all inputs except X=1, Y=1.
+          From the diagram: C = NOT(A), D = NOT(B), E = AND(C, B) = NOT(A)·B, and Z = NOR(E) ... varies by exact diagram.<br><br>
+          <strong>General method awarded marks:</strong><br>
+          1. Label ALL intermediate signals (C, D, E, F)<br>
+          2. Write each as a Boolean expression<br>
+          3. Fill truth table with all 4 rows (A=0/0/1/1, B=0/1/0/1)<br>
+          4. Compute each column in order<br>
+          5. Final Z column correct
+          <table><tr><th>A</th><th>B</th><th>C=¬A</th><th>D=¬B</th><th>E=C∧B</th><th>Z</th></tr>
+          <tr><td>0</td><td>0</td><td>1</td><td>1</td><td>0</td><td>0</td></tr>
+          <tr><td>0</td><td>1</td><td>1</td><td>0</td><td>1</td><td>1</td></tr>
+          <tr><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td><td>0</td></tr>
+          <tr><td>1</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td></tr></table>
+          <em>Check against your specific Figure 1 diagram.</em>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Q1a(i-iv) 2021 logic gates -->
-  <div class="q-card" data-sec="A" data-year="2021">
+  <!-- 2023 Q2a multiplexer -->
+  <div class="q-card repeat-q" data-sec="A" data-year="2023">
     <div class="q-header" onclick="toggle(this.parentElement)">
-      <div class="q-num">Q1a(i–iv)</div>
-      <div class="q-text">Draw truth tables for the THREE basic logic gates. Draw truth table for NOT(X AND Y). Write the logic expression for the XOR truth table. <em>[8 marks]</em></div>
-      <div class="q-meta"><span class="marks-badge">8 marks</span><span class="year-tag">2021</span><span class="toggle-icon">›</span></div>
+      <div class="q-num">Q2a</div>
+      <div class="q-text">Explain what is meant by the term '<strong>multiplexer</strong>'. <em>[2 marks]</em></div>
+      <div class="q-meta"><span class="marks-badge">2 marks</span><span class="year-tag">2023</span><span class="repeat-badge">REPEAT</span><span class="toggle-icon">›</span></div>
     </div>
     <div class="q-panels">
       <div class="panel answer-panel">
         <div class="panel-header" onclick="togglePanel(this.parentElement)"><span>✓ Full Answer</span><span class="arrow">▾</span></div>
         <div class="panel-body">
-          <strong>AND Gate:</strong><br>
-          <table><tr><th>A</th><th>B</th><th>OUT</th></tr><tr><td>0</td><td>0</td><td>0</td></tr><tr><td>0</td><td>1</td><td>0</td></tr><tr><td>1</td><td>0</td><td>0</td></tr><tr><td>1</td><td>1</td><td class="highlight">1</td></tr></table><br>
-          <strong>OR Gate:</strong><br>
-          <table><tr><th>A</th><th>B</th><th>OUT</th></tr><tr><td>0</td><td>0</td><td>0</td></tr><tr><td>0</td><td>1</td><td class="highlight">1</td></tr><tr><td>1</td><td>0</td><td class="highlight">1</td></tr><tr><td>1</td><td>1</td><td class="highlight">1</td></tr></table><br>
-          <strong>NOT Gate:</strong><br>
-          <table><tr><th>A</th><th>OUT</th></tr><tr><td>0</td><td class="highlight">1</td></tr><tr><td>1</td><td>0</td></tr></table><br>
-          <strong>NOT(X AND Y) — NAND:</strong><br>
-          <table><tr><th>X</th><th>Y</th><th>X∧Y</th><th>¬(X∧Y)</th></tr><tr><td>0</td><td>0</td><td>0</td><td class="highlight">1</td></tr><tr><td>0</td><td>1</td><td>0</td><td class="highlight">1</td></tr><tr><td>1</td><td>0</td><td>0</td><td class="highlight">1</td></tr><tr><td>1</td><td>1</td><td>1</td><td>0</td></tr></table><br>
-          <strong>XOR expression</strong> (output 1 when inputs differ):<br>
-          <code class="highlight">Z = (X AND NOT Y) OR (NOT X AND Y)</code><br>
-          i.e. Z = X⊕Y = X·Y' + X'·Y
+          A multiplexer (MUX) is a combinational logic circuit that selects <strong>one of several input signals</strong> and routes it to a single output line, based on the value of <strong>selection (control) lines</strong>. A 4-to-1 MUX has 4 data inputs, 2 selection lines, and 1 output.
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Multiplexer questions -->
-  <div class="q-card" data-sec="A" data-year="2017">
+  <!-- 2023 Q2b truth table for NAND circuit -->
+  <div class="q-card repeat-q" data-sec="A" data-year="2023">
     <div class="q-header" onclick="toggle(this.parentElement)">
-      <div class="q-num">Q1f–h</div>
-      <div class="q-text">(f) Draw a labelled diagram of a <strong>4-input multiplexer</strong>. (g) Describe how a multiplexer selects the correct output in an ALU with AND, OR, addition and shifting. (h) State the number of selection control lines needed for a <strong>10-input</strong> multiplexer. <em>[7 marks]</em></div>
-      <div class="q-meta"><span class="marks-badge">7 marks</span><span class="year-tag">2017</span><span class="toggle-icon">›</span></div>
+      <div class="q-num">Q2b</div>
+      <div class="q-text">Construct the truth table for Figure 1: A→NOT(C)→AND with B gives E; B→NOT(D)→OR with A gives F; E AND F → NAND → Output. Show all intermediate steps. <em>[6 marks]</em></div>
+      <div class="q-meta"><span class="marks-badge">6 marks</span><span class="year-tag">2023</span><span class="repeat-badge">REPEAT</span><span class="toggle-icon">›</span></div>
     </div>
     <div class="q-panels">
       <div class="panel hint-panel">
         <div class="panel-header" onclick="togglePanel(this.parentElement)"><span>💡 Hint</span><span class="arrow">▾</span></div>
-        <div class="panel-body">
-          A MUX with n inputs needs ⌈log<sub>2</sub>(n)⌉ selection lines.<br>
-          4 inputs → 2 selection lines. 10 inputs → 4 selection lines (2<sup>4</sup>=16 ≥ 10).
-        </div>
+        <div class="panel-body">Label each gate output: C=NOT(A), D=NOT(B), E=AND(C,B)=NOT(A)·B, F=OR(D,A)=NOT(B)+A. Then Output=NAND(E,F)=NOT(E AND F).</div>
       </div>
       <div class="panel answer-panel">
-        <div class="panel-header" onclick="togglePanel(this.panelElement)"><span>✓ Full Answer</span><span class="arrow">▾</span></div>
+        <div class="panel-header" onclick="togglePanel(this.parentElement)"><span>✓ Full Answer</span><span class="arrow">▾</span></div>
         <div class="panel-body">
-          <strong>(f) 4-to-1 Multiplexer:</strong><br>
-          Has 4 data inputs (D0–D3), 2 selection lines (S0, S1), and 1 output Z.<br>
-          Selection truth: S1S0=00→D0, 01→D1, 10→D2, 11→D3<br><br>
-          <strong>(g) ALU use of multiplexer:</strong><br>
-          Each ALU circuit (AND, OR, Adder, Shifter) performs its operation simultaneously. The selection control lines (determined by the opcode/instruction) are fed to the multiplexer, which routes only the result from the selected circuit to the output. This avoids the need to physically switch circuits.<br><br>
-          <strong>(h) 10-input multiplexer:</strong><br>
-          Need ⌈log<sub>2</sub>(10)⌉ = <span class="highlight">4 selection lines</span> (since 2<sup>3</sup>=8 &lt; 10 ≤ 2<sup>4</sup>=16)
+          C=¬A, D=¬B, E=¬A·B, F=¬B+A, Output=¬(E∧F)
+          <table><tr><th>A</th><th>B</th><th>C=¬A</th><th>D=¬B</th><th>E=C∧B</th><th>F=D∨A</th><th>Output=¬(E∧F)</th></tr>
+          <tr><td>0</td><td>0</td><td>1</td><td>1</td><td>0</td><td>1</td><td class="highlight">1</td></tr>
+          <tr><td>0</td><td>1</td><td>1</td><td>0</td><td>1</td><td>0</td><td class="highlight">1</td></tr>
+          <tr><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td><td>1</td><td class="highlight">1</td></tr>
+          <tr><td>1</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td><td class="highlight">1</td></tr></table>
+          <em>Output is always 1 in this configuration.</em>
         </div>
       </div>
     </div>
   </div>
 
-</div><!-- end logic gates topic -->
+</div><!-- end logic gates -->
 
-<!-- ---- TOPIC: MEMORY & CPU ---- -->
+<!-- MEMORY & CPU -->
 <div class="topic-group" data-sec="A" id="tg-memory">
   <div class="topic-header">
     <div class="topic-icon" style="background:rgba(0,212,170,0.15);">🖥️</div>
     <div>
       <div class="topic-title" style="color:var(--arch);">MEMORY, REGISTERS &amp; CPU</div>
-      <div style="font-size:12px;color:var(--muted);">Flip-flops · Registers · RAM/ROM · Cache · Instruction cycle · Virtual memory</div>
+      <div style="font-size:12px;color:var(--muted);">Cache · RAM/ROM · FDE cycle · Virtual memory · Computer types</div>
     </div>
-    <div class="topic-desc">Section A</div>
+    <div class="topic-desc">Section A &nbsp;<span class="repeat-badge">5/5 YEARS</span></div>
   </div>
 
-  <!-- Flip-flop register -->
-  <div class="q-card" data-sec="A" data-year="2017">
-    <div class="q-header" onclick="toggle(this.parentElement)">
-      <div class="q-num">Q2a</div>
-      <div class="q-text">Draw a diagram showing how a set of flip-flops can be used to create a <strong>4-bit register</strong>. <em>[4 marks]</em></div>
-      <div class="q-meta"><span class="marks-badge">4 marks</span><span class="year-tag">2017</span><span class="toggle-icon">›</span></div>
-    </div>
-    <div class="q-panels">
-      <div class="panel hint-panel">
-        <div class="panel-header" onclick="togglePanel(this.parentElement)"><span>💡 Hint</span><span class="arrow">▾</span></div>
-        <div class="panel-body">
-          4 flip-flops (each storing 1 bit) connected in parallel. Each has a D input, clock input (shared), and Q output. They all share the same clock line.
-        </div>
-      </div>
-      <div class="panel answer-panel">
-        <div class="panel-header" onclick="togglePanel(this.parentElement)"><span>✓ Full Answer</span><span class="arrow">▾</span></div>
-        <div class="panel-body">
-          Four D flip-flops arranged in parallel:<br><br>
-          <pre>  D0 →[FF0]→ Q0  (bit 0)
-  D1 →[FF1]→ Q1  (bit 1)
-  D2 →[FF2]→ Q2  (bit 2)
-  D3 →[FF3]→ Q3  (bit 3)
-        ↑
-    CLK (shared clock line)</pre>
-          All four flip-flops share the same <strong>clock</strong> signal. On each clock pulse, data on D0–D3 is simultaneously stored in the register and presented at Q0–Q3. This creates a 4-bit parallel register.
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Decoder RAM -->
-  <div class="q-card" data-sec="A" data-year="2017">
-    <div class="q-header" onclick="toggle(this.parentElement)">
-      <div class="q-num">Q2b–c</div>
-      <div class="q-text">(b) Describe the purpose of a <strong>decoder</strong> while accessing RAM. (c) Derive the maximum number of RAM locations that can be accessed with an <strong>8-bit memory address</strong>. <em>[4 marks]</em></div>
-      <div class="q-meta"><span class="marks-badge">4 marks</span><span class="year-tag">2017</span><span class="toggle-icon">›</span></div>
-    </div>
-    <div class="q-panels">
-      <div class="panel answer-panel">
-        <div class="panel-header" onclick="togglePanel(this.parentElement)"><span>✓ Full Answer</span><span class="arrow">▾</span></div>
-        <div class="panel-body">
-          <strong>(b) Decoder purpose:</strong><br>
-          A decoder accepts an n-bit binary address and activates exactly ONE of its 2<sup>n</sup> output lines. When accessing RAM, the memory address bus is connected to the decoder; the decoder selects (enables) the specific memory cell/row corresponding to that address, allowing only that location to be read from or written to.<br><br>
-          <strong>(c) 8-bit address:</strong><br>
-          Maximum locations = 2<sup>8</sup> = <span class="highlight">256 RAM locations</span>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Registers vs RAM speed -->
-  <div class="q-card" data-sec="A" data-year="2017">
-    <div class="q-header" onclick="toggle(this.parentElement)">
-      <div class="q-num">Q2d</div>
-      <div class="q-text">Explain why statements that access data stored in <strong>memory registers</strong> execute faster than statements that access data stored in <strong>RAM</strong>. <em>[3 marks]</em></div>
-      <div class="q-meta"><span class="marks-badge">3 marks</span><span class="year-tag">2017</span><span class="toggle-icon">›</span></div>
-    </div>
-    <div class="q-panels">
-      <div class="panel answer-panel">
-        <div class="panel-header" onclick="togglePanel(this.parentElement)"><span>✓ Full Answer</span><span class="arrow">▾</span></div>
-        <div class="panel-body">
-          <ul class="answer-list">
-            <li>Registers are <strong>located inside the CPU</strong> itself — no bus transfer is needed; data is already at the point of processing.</li>
-            <li>RAM is external to the CPU; accessing it requires data to travel across the <strong>memory bus</strong>, introducing latency.</li>
-            <li>Registers are made of <strong>faster flip-flop circuits</strong> (SRAM-like), whereas RAM uses slower DRAM technology.</li>
-            <li>No addressing/decoding overhead — the CPU directly references a named register.</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Instruction cycle 2017 -->
-  <div class="q-card" data-sec="A" data-year="2017">
+  <!-- 2017 instruction cycle -->
+  <div class="q-card repeat-q" data-sec="A" data-year="2017">
     <div class="q-header" onclick="toggle(this.parentElement)">
       <div class="q-num">Q2e</div>
       <div class="q-text">Name the <strong>THREE phases</strong> of the instruction cycle and outline how EACH phase operates. <em>[6 marks]</em></div>
-      <div class="q-meta"><span class="marks-badge">6 marks</span><span class="year-tag">2017</span><span class="toggle-icon">›</span></div>
+      <div class="q-meta"><span class="marks-badge">6 marks</span><span class="year-tag">2017</span><span class="repeat-badge">REPEAT</span><span class="toggle-icon">›</span></div>
     </div>
     <div class="q-panels">
-      <div class="panel hint-panel">
-        <div class="panel-header" onclick="togglePanel(this.parentElement)"><span>💡 Hint</span><span class="arrow">▾</span></div>
-        <div class="panel-body">Three phases: Fetch → Decode → Execute. Also called the FDE cycle.</div>
-      </div>
       <div class="panel answer-panel">
         <div class="panel-header" onclick="togglePanel(this.parentElement)"><span>✓ Full Answer</span><span class="arrow">▾</span></div>
         <div class="panel-body">
-          <strong>1. FETCH:</strong><br>
-          The Program Counter (PC) holds the address of the next instruction. This address is copied to the Memory Address Register (MAR). The instruction at that address is retrieved from RAM into the Memory Data Register (MDR), then copied to the Current Instruction Register (CIR). The PC is incremented to point to the next instruction.<br><br>
-          <strong>2. DECODE:</strong><br>
-          The Control Unit (CU) interprets/decodes the instruction in the CIR. It identifies the operation code (opcode) and any operand addresses. It prepares the appropriate control signals for execution.<br><br>
-          <strong>3. EXECUTE:</strong><br>
-          The ALU or other hardware performs the operation specified by the opcode (e.g., arithmetic, logic, data movement). Results may be stored in a register or written back to RAM. The cycle then repeats.
+          <strong>1. FETCH:</strong> PC holds next instruction address → copied to MAR → instruction retrieved from RAM to MDR → copied to CIR → PC incremented.<br><br>
+          <strong>2. DECODE:</strong> Control Unit interprets opcode in CIR, generates control signals and identifies operands.<br><br>
+          <strong>3. EXECUTE:</strong> ALU/hardware performs the operation; result stored in register or RAM; cycle repeats.
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Cache -->
-  <div class="q-card" data-sec="A" data-year="2017">
+  <!-- 2017 cache -->
+  <div class="q-card repeat-q" data-sec="A" data-year="2017">
     <div class="q-header" onclick="toggle(this.parentElement)">
       <div class="q-num">Q2f</div>
-      <div class="q-text">Discuss why a <strong>cache</strong> is expected to speed up a computer system. Include a definition of cache. <em>[4 marks]</em></div>
-      <div class="q-meta"><span class="marks-badge">4 marks</span><span class="year-tag">2017</span><span class="toggle-icon">›</span></div>
+      <div class="q-text">Discuss why a <strong>cache</strong> is expected to speed up a computer system. Include a definition. <em>[4 marks]</em></div>
+      <div class="q-meta"><span class="marks-badge">4 marks</span><span class="year-tag">2017</span><span class="repeat-badge">REPEAT</span><span class="toggle-icon">›</span></div>
     </div>
     <div class="q-panels">
       <div class="panel answer-panel">
         <div class="panel-header" onclick="togglePanel(this.parentElement)"><span>✓ Full Answer</span><span class="arrow">▾</span></div>
         <div class="panel-body">
-          <strong>Definition:</strong> Cache is a small, very fast memory located between the CPU and main RAM that stores copies of frequently or recently accessed data and instructions.<br><br>
-          <strong>Why it speeds up the system:</strong><br>
-          <ul class="answer-list">
-            <li>RAM is significantly slower than the CPU; the CPU would otherwise "stall" waiting for data.</li>
-            <li>Cache exploits <em>locality of reference</em>: programs tend to reuse the same data/instructions repeatedly (temporal locality) or access nearby memory locations (spatial locality).</li>
-            <li>When the CPU finds data in cache (a <em>cache hit</em>), it retrieves it much faster than going to RAM — reducing the effective memory access time.</li>
-            <li>This bridges the speed gap between the fast CPU and slower RAM.</li>
-          </ul>
+          <strong>Definition:</strong> Cache is a small, very fast memory between the CPU and RAM that stores copies of frequently/recently accessed data.<br><br>
+          Exploits <em>temporal locality</em> (reuse of same data) and <em>spatial locality</em> (nearby data). Cache hits retrieve data much faster than RAM access, bridging the CPU–RAM speed gap.
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Virtual memory 2021 -->
-  <div class="q-card" data-sec="A" data-year="2021">
-    <div class="q-header" onclick="toggle(this.parentElement)">
-      <div class="q-num">Q2d</div>
-      <div class="q-text">(i) State the purpose of <strong>virtual memory</strong>. (ii) List the THREE components of a virtual memory system. (iii) Describe the interaction that allows a virtual memory address to be accessed. <em>[7 marks]</em></div>
-      <div class="q-meta"><span class="marks-badge">7 marks</span><span class="year-tag">2021</span><span class="toggle-icon">›</span></div>
-    </div>
-    <div class="q-panels">
-      <div class="panel answer-panel">
-        <div class="panel-header" onclick="togglePanel(this.parentElement)"><span>✓ Full Answer</span><span class="arrow">▾</span></div>
-        <div class="panel-body">
-          <strong>(i) Purpose:</strong> Virtual memory allows a computer to use secondary storage (hard disk) as an extension of RAM, enabling programs larger than physical RAM to run.<br><br>
-          <strong>(ii) THREE components:</strong><br>
-          1. Physical RAM<br>
-          2. Secondary storage (hard disk / swap space)<br>
-          3. Page table (mapping virtual addresses to physical addresses)<br><br>
-          <strong>(iii) Accessing a virtual address:</strong><br>
-          The CPU generates a virtual address. The Memory Management Unit (MMU) consults the page table to find the corresponding physical address. If the page is in RAM (page hit), data is retrieved directly. If not (page fault), the OS fetches the required page from disk into RAM (possibly swapping out another page), updates the page table, and the CPU retries the access.
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- CPU components 2021 -->
-  <div class="q-card" data-sec="A" data-year="2021">
+  <!-- 2018 RAM ROM hard disk -->
+  <div class="q-card repeat-q" data-sec="A" data-year="2018">
     <div class="q-header" onclick="toggle(this.parentElement)">
       <div class="q-num">Q2e</div>
-      <div class="q-text">State the <strong>THREE main components of the CPU</strong> and describe each component's role during the instruction cycle. <em>[9 marks]</em></div>
-      <div class="q-meta"><span class="marks-badge">9 marks</span><span class="year-tag">2021</span><span class="toggle-icon">›</span></div>
+      <div class="q-text">With reference to RAM, ROM and hard disks, explain why <strong>different types of memory</strong> are needed. <em>[6 marks]</em></div>
+      <div class="q-meta"><span class="marks-badge">6 marks</span><span class="year-tag">2018</span><span class="repeat-badge">REPEAT</span><span class="toggle-icon">›</span></div>
     </div>
     <div class="q-panels">
       <div class="panel answer-panel">
         <div class="panel-header" onclick="togglePanel(this.parentElement)"><span>✓ Full Answer</span><span class="arrow">▾</span></div>
         <div class="panel-body">
-          <strong>1. Control Unit (CU):</strong><br>
-          Directs the operation of the processor. During fetch: sends signals to copy the instruction from memory. During decode: interprets the opcode and generates appropriate control signals. During execute: coordinates all components to carry out the instruction.<br><br>
-          <strong>2. Arithmetic Logic Unit (ALU):</strong><br>
-          Performs all arithmetic operations (add, subtract, multiply) and logical operations (AND, OR, NOT, comparisons). During execute phase, receives operands from registers and produces a result stored back in a register or the accumulator.<br><br>
-          <strong>3. Registers (set of):</strong><br>
-          High-speed storage locations inside the CPU. Key registers include: Program Counter (PC) — tracks next instruction address; Current Instruction Register (CIR) — holds current instruction; Accumulator — stores ALU results; MAR and MDR — interface with memory during fetch.
+          <strong>RAM:</strong> Volatile, fast, holds active programs/data. Lost on power-off.<br>
+          <strong>ROM:</strong> Non-volatile, permanent firmware (BIOS). Cannot be modified normally.<br>
+          <strong>Hard Disk:</strong> Non-volatile, large capacity, slow. Persistent file storage.<br><br>
+          No single technology can simultaneously offer high speed + large capacity + non-volatility + low cost. Each occupies a niche in the memory hierarchy.
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Memory types 2018 -->
-  <div class="q-card" data-sec="A" data-year="2018">
+  <!-- 2022 Q2a cache -->
+  <div class="q-card repeat-q" data-sec="A" data-year="2022">
     <div class="q-header" onclick="toggle(this.parentElement)">
-      <div class="q-num">Q2e</div>
-      <div class="q-text">With reference to RAM, ROM and hard disks, explain why <strong>different types of memory</strong> are needed in computers. <em>[6 marks]</em></div>
-      <div class="q-meta"><span class="marks-badge">6 marks</span><span class="year-tag">2018</span><span class="toggle-icon">›</span></div>
+      <div class="q-num">Q2a</div>
+      <div class="q-text">(i) Define '<strong>cache memory</strong>'. (ii) Explain how cache memory increases the efficiency of data retrieval in the CPU. <em>[5 marks]</em></div>
+      <div class="q-meta"><span class="marks-badge">5 marks</span><span class="year-tag">2022</span><span class="repeat-badge">REPEAT</span><span class="toggle-icon">›</span></div>
     </div>
     <div class="q-panels">
       <div class="panel answer-panel">
         <div class="panel-header" onclick="togglePanel(this.parentElement)"><span>✓ Full Answer</span><span class="arrow">▾</span></div>
         <div class="panel-body">
-          <strong>RAM (Random Access Memory):</strong> Volatile, fast, used as working memory. Programs and data currently in use are loaded here for fast CPU access. Contents lost when power is removed.<br><br>
-          <strong>ROM (Read-Only Memory):</strong> Non-volatile, stores permanent instructions that must survive power-off (e.g. the BIOS/boot firmware). Cannot be modified during normal operation — protects critical start-up code.<br><br>
-          <strong>Hard Disk (Secondary Storage):</strong> Non-volatile, very large capacity but slow. Used for persistent data storage (files, programs, OS). Much cheaper per byte than RAM.<br><br>
-          <strong>Why different types are needed:</strong> No single memory technology can simultaneously offer high speed, large capacity, non-volatility, and low cost. Each type occupies a niche in the memory hierarchy — fast small expensive memories near the CPU (registers/cache/RAM) and slow large cheap storage further away (disk). Together they balance performance, cost and persistence.
+          (i) Cache memory is a small, high-speed memory located between the CPU and main RAM that stores copies of frequently or recently used data and instructions.<br><br>
+          (ii) When the CPU needs data, it first checks the cache. If found (cache <em>hit</em>), it retrieves data in nanoseconds rather than the slower RAM access time. This reduces the number of slow main-memory accesses, significantly increasing overall throughput. Cache exploits the principle of locality — programs tend to reuse the same small set of data repeatedly.
         </div>
       </div>
     </div>
   </div>
 
-</div><!-- end memory topic -->
+  <!-- 2022 Q2b CPU components -->
+  <div class="q-card repeat-q" data-sec="A" data-year="2022">
+    <div class="q-header" onclick="toggle(this.parentElement)">
+      <div class="q-num">Q2b</div>
+      <div class="q-text">(i) Name TWO components of the CPU, <em>other than registers</em>. (ii) State the function of EACH. <em>[4 marks]</em></div>
+      <div class="q-meta"><span class="marks-badge">4 marks</span><span class="year-tag">2022</span><span class="repeat-badge">REPEAT</span><span class="toggle-icon">›</span></div>
+    </div>
+    <div class="q-panels">
+      <div class="panel answer-panel">
+        <div class="panel-header" onclick="togglePanel(this.parentElement)"><span>✓ Full Answer</span><span class="arrow">▾</span></div>
+        <div class="panel-body">
+          <strong>1. Control Unit (CU):</strong> Directs and coordinates all operations in the CPU — fetches instructions, decodes them, and generates control signals to execute them.<br><br>
+          <strong>2. Arithmetic Logic Unit (ALU):</strong> Performs all arithmetic operations (add, subtract) and logical operations (AND, OR, NOT, compare) on data.
+        </div>
+      </div>
+    </div>
+  </div>
 
-<!-- ============================================================ -->
-<!-- SECTION B: PROBLEM SOLVING -->
-<!-- ============================================================ -->
+  <!-- 2022 Q2c computer types scenarios -->
+  <div class="q-card" data-sec="A" data-year="2022">
+    <div class="q-header" onclick="toggle(this.parentElement)">
+      <div class="q-num">Q2c</div>
+      <div class="q-text">Describe a scenario where each can be used: (i) Supercomputer, (ii) Server, (iii) Mobile device. <em>[6 marks]</em></div>
+      <div class="q-meta"><span class="marks-badge">6 marks</span><span class="year-tag">2022</span><span class="toggle-icon">›</span></div>
+    </div>
+    <div class="q-panels">
+      <div class="panel answer-panel">
+        <div class="panel-header" onclick="togglePanel(this.parentElement)"><span>✓ Full Answer</span><span class="arrow">▾</span></div>
+        <div class="panel-body">
+          (i) <strong>Supercomputer:</strong> Weather forecasting agencies use supercomputers to simulate atmospheric conditions over millions of grid points simultaneously, producing forecasts that would take years on ordinary hardware.<br><br>
+          (ii) <strong>Server:</strong> An e-commerce company uses web servers to handle thousands of simultaneous customer requests, managing product databases and transactions 24/7.<br><br>
+          (iii) <strong>Mobile device:</strong> A student uses a smartphone to take photos, access cloud storage, and video-call classmates while travelling to school.
+        </div>
+      </div>
+    </div>
+  </div>
 
+  <!-- 2023 Q1a differentiations -->
+  <div class="q-card repeat-q" data-sec="A" data-year="2023">
+    <div class="q-header" onclick="toggle(this.parentElement)">
+      <div class="q-num">Q1a</div>
+      <div class="q-text">Differentiate between: (i) ROM and RAM, (ii) Surge protector and voltage regulator, (iii) Supercomputer and microcomputer. <em>[6 marks total]</em></div>
+      <div class="q-meta"><span class="marks-badge">6 marks</span><span class="year-tag">2023</span><span class="repeat-badge">REPEAT</span><span class="toggle-icon">›</span></div>
+    </div>
+    <div class="q-panels">
+      <div class="panel answer-panel">
+        <div class="panel-header" onclick="togglePanel(this.parentElement)"><span>✓ Full Answer</span><span class="arrow">▾</span></div>
+        <div class="panel-body">
+          <strong>(i) ROM vs RAM:</strong> ROM is non-volatile (retains data without power) and read-only in normal operation; used for firmware/BIOS. RAM is volatile (loses data on power-off) and read/write; used for temporary active program storage.<br><br>
+          <strong>(ii) Surge protector vs voltage regulator:</strong> A surge protector shields equipment from sudden voltage spikes (e.g. lightning). A voltage regulator continuously maintains a stable output voltage regardless of fluctuations in the input supply.<br><br>
+          <strong>(iii) Supercomputer vs microcomputer:</strong> A supercomputer is an extremely powerful, expensive machine used for complex scientific calculations (e.g. climate modelling). A microcomputer is a small, affordable personal computer (desktop, laptop) used by individuals for everyday tasks.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2023 Q1b gamer hardware specs -->
+  <div class="q-card" data-sec="A" data-year="2023">
+    <div class="q-header" onclick="toggle(this.parentElement)">
+      <div class="q-num">Q1b</div>
+      <div class="q-text">A gamer wishes to purchase a new computer. State THREE hardware specifications that should be considered and explain why EACH was chosen. <em>[6 marks]</em></div>
+      <div class="q-meta"><span class="marks-badge">6 marks</span><span class="year-tag">2023</span><span class="toggle-icon">›</span></div>
+    </div>
+    <div class="q-panels">
+      <div class="panel answer-panel">
+        <div class="panel-header" onclick="togglePanel(this.parentElement)"><span>✓ Full Answer</span><span class="arrow">▾</span></div>
+        <div class="panel-body">
+          <strong>1. GPU (Graphics Processing Unit):</strong> A dedicated GPU (e.g. NVIDIA GeForce) is essential for rendering complex 3D graphics at high frame rates, enabling smooth gameplay and high visual quality.<br><br>
+          <strong>2. RAM (amount):</strong> At least 16GB RAM ensures the game and OS can run simultaneously without slowdowns; games load large assets into memory during play.<br><br>
+          <strong>3. CPU speed (GHz / core count):</strong> A fast multi-core processor handles game logic, AI calculations, and physics simultaneously. Higher clock speeds reduce processing latency.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2023 Q1c FDE cycle -->
+  <div class="q-card repeat-q" data-sec="A" data-year="2023">
+    <div class="q-header" onclick="toggle(this.parentElement)">
+      <div class="q-num">Q1c</div>
+      <div class="q-text">Briefly describe the processes in the <strong>fetch-decode-execute</strong> instruction cycle. <em>[3 marks]</em></div>
+      <div class="q-meta"><span class="marks-badge">3 marks</span><span class="year-tag">2023</span><span class="repeat-badge">REPEAT</span><span class="toggle-icon">›</span></div>
+    </div>
+    <div class="q-panels">
+      <div class="panel answer-panel">
+        <div class="panel-header" onclick="togglePanel(this.parentElement)"><span>✓ Full Answer</span><span class="arrow">▾</span></div>
+        <div class="panel-body">
+          <strong>Fetch:</strong> The CPU reads the next instruction from RAM (at the address in the Program Counter) into the CIR; the PC is then incremented.<br>
+          <strong>Decode:</strong> The Control Unit interprets the opcode and prepares the necessary control signals.<br>
+          <strong>Execute:</strong> The instruction is carried out (e.g. ALU performs arithmetic, data is moved, a branch is taken); results are stored.
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end memory cpu -->
+
+<!-- ============================================================ SECTION B ============================================================ -->
 <div class="topic-group" data-sec="B" id="tg-algo">
   <div class="topic-header">
     <div class="topic-icon" style="background:rgba(255,107,107,0.15);">🧩</div>
     <div>
-      <div class="topic-title" style="color:var(--prob);">ALGORITHMS &amp; PROBLEM SOLVING</div>
-      <div style="font-size:12px;color:var(--muted);">Properties · Pseudocode · Tracing · Flowcharts · Control structures</div>
+      <div class="topic-title" style="color:var(--prob);">ALGORITHMS, PSEUDOCODE &amp; PROBLEM SOLVING</div>
+      <div style="font-size:12px;color:var(--muted);">Properties · Pseudocode · Tracing · Flowcharts · Control structures · Error identification</div>
     </div>
-    <div class="topic-desc">Section B</div>
+    <div class="topic-desc">Section B &nbsp;<span class="repeat-badge">5/5 YEARS</span></div>
   </div>
 
-  <!-- Algorithm properties -->
-  <div class="q-card" data-sec="B" data-year="2017">
+  <!-- 2017 algorithm properties -->
+  <div class="q-card repeat-q" data-sec="B" data-year="2017">
     <div class="q-header" onclick="toggle(this.parentElement)">
       <div class="q-num">Q3a</div>
       <div class="q-text">State <strong>THREE properties</strong> of well-defined algorithms. <em>[3 marks]</em></div>
-      <div class="q-meta"><span class="marks-badge">3 marks</span><span class="year-tag">2017</span><span class="toggle-icon">›</span></div>
+      <div class="q-meta"><span class="marks-badge">3 marks</span><span class="year-tag">2017</span><span class="repeat-badge">REPEAT</span><span class="toggle-icon">›</span></div>
     </div>
     <div class="q-panels">
       <div class="panel answer-panel">
         <div class="panel-header" onclick="togglePanel(this.parentElement)"><span>✓ Full Answer</span><span class="arrow">▾</span></div>
         <div class="panel-body">
-          <ul class="answer-list">
-            <li><strong>Finiteness:</strong> The algorithm must terminate after a finite number of steps.</li>
-            <li><strong>Definiteness:</strong> Each step must be precisely and unambiguously defined.</li>
-            <li><strong>Effectiveness:</strong> Each step must be basic enough to be carried out (feasible).</li>
-            <li>(Also acceptable: Input — zero or more inputs; Output — one or more outputs)</li>
-          </ul>
+          1. <strong>Finiteness</strong> — terminates after a finite number of steps.<br>
+          2. <strong>Definiteness</strong> — each step is precisely and unambiguously defined.<br>
+          3. <strong>Effectiveness</strong> — each step is basic and feasible to carry out.<br>
+          (Also: Input — zero or more inputs; Output — one or more outputs)
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Temperature algorithm -->
-  <div class="q-card" data-sec="B" data-year="2017">
+  <!-- 2022 Q3a same properties question -->
+  <div class="q-card repeat-q" data-sec="B" data-year="2022">
     <div class="q-header" onclick="toggle(this.parentElement)">
-      <div class="q-num">Q3c</div>
-      <div class="q-text">Write an algorithm that: prompts a user for a temperature in Fahrenheit, converts to Celsius using (F−32)×5÷9, and prints "It's cold!" if Celsius &lt; 17. <em>[3 marks]</em></div>
-      <div class="q-meta"><span class="marks-badge">3 marks</span><span class="year-tag">2017</span><span class="toggle-icon">›</span></div>
+      <div class="q-num">Q3a</div>
+      <div class="q-text">List the <strong>THREE properties</strong> of a well-designed algorithm. <em>[3 marks]</em></div>
+      <div class="q-meta"><span class="marks-badge">3 marks</span><span class="year-tag">2022</span><span class="repeat-badge">REPEAT</span><span class="toggle-icon">›</span></div>
     </div>
     <div class="q-panels">
+      <div class="panel repeat-panel">
+        <div class="panel-header" onclick="togglePanel(this.parentElement)"><span>🔁 Repeat Alert</span><span class="arrow">▾</span></div>
+        <div class="panel-body">This question is <strong>identical</strong> to 2017 Q3a. If you know this answer, you have guaranteed marks in at least two different years.</div>
+      </div>
       <div class="panel answer-panel">
         <div class="panel-header" onclick="togglePanel(this.parentElement)"><span>✓ Full Answer</span><span class="arrow">▾</span></div>
-        <div class="panel-body">
-<div class="algo">START
-  PRINT "Enter temperature in Fahrenheit:"
-  INPUT fahrenheit
-  celsius = (fahrenheit - 32) * 5 / 9
-  IF celsius < 17 THEN
-    PRINT "It's cold!"
-  ENDIF
-END</div>
-        </div>
+        <div class="panel-body">Finiteness, Definiteness, Effectiveness (same as 2017).</div>
       </div>
     </div>
   </div>
 
-  <!-- Nested IF trace 2017 -->
-  <div class="q-card" data-sec="B" data-year="2017">
-    <div class="q-header" onclick="toggle(this.parentElement)">
-      <div class="q-num">Q3d</div>
-      <div class="q-text">Trace the algorithm and write the output for num=0, num=1, num=2:<br>
-<code>IF num&gt;0 THEN IF num==2 PRINT "FIRST" ELSE PRINT "SECOND" ENDIF ENDIF; PRINT "THIRD"</code><em> [5 marks]</em></div>
-      <div class="q-meta"><span class="marks-badge">5 marks</span><span class="year-tag">2017</span><span class="toggle-icon">›</span></div>
-    </div>
-    <div class="q-panels">
-      <div class="panel hint-panel">
-        <div class="panel-header" onclick="togglePanel(this.parentElement)"><span>💡 Hint</span><span class="arrow">▾</span></div>
-        <div class="panel-body">PRINT "THIRD" is outside all IF blocks — it always executes. The inner IF/ELSE only runs when num &gt; 0.</div>
-      </div>
-      <div class="panel answer-panel">
-        <div class="panel-header" onclick="togglePanel(this.parentElement)"><span>✓ Full Answer</span><span class="arrow">▾</span></div>
-        <div class="panel-body">
-          <strong>num = 0:</strong> Outer IF false → skip inner → PRINT "THIRD"<br>
-          Output: <code class="highlight">THIRD</code><br><br>
-          <strong>num = 1:</strong> Outer IF true → inner: 1≠2 → ELSE → PRINT "SECOND"; then PRINT "THIRD"<br>
-          Output: <code class="highlight">SECOND THIRD</code><br><br>
-          <strong>num = 2:</strong> Outer IF true → inner: 2==2 → PRINT "FIRST"; then PRINT "THIRD"<br>
-          Output: <code class="highlight">FIRST THIRD</code>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Control constructs -->
-  <div class="q-card" data-sec="B" data-year="2017">
-    <div class="q-header" onclick="toggle(this.parentElement)">
-      <div class="q-num">Q4a</div>
-      <div class="q-text">List <strong>THREE types of control constructs</strong> in programming. <em>[3 marks]</em></div>
-      <div class="q-meta"><span class="marks-badge">3 marks</span><span class="year-tag">2017</span><span class="toggle-icon">›</span></div>
-    </div>
-    <div class="q-panels">
-      <div class="panel answer-panel">
-        <div class="panel-header" onclick="togglePanel(this.parentElement)"><span>✓ Full Answer</span><span class="arrow">▾</span></div>
-        <div class="panel-body">
-          1. <strong>Sequence</strong> — instructions executed one after another in order<br>
-          2. <strong>Selection</strong> (branching) — IF/ELSE/CASE chooses a path based on a condition<br>
-          3. <strong>Iteration</strong> (looping) — WHILE/FOR/REPEAT repeats a block of instructions
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Sum of squares algorithm 2017 -->
-  <div class="q-card" data-sec="B" data-year="2017">
+  <!-- 2017 algorithm errors sum of squares -->
+  <div class="q-card repeat-q" data-sec="B" data-year="2017">
     <div class="q-header" onclick="toggle(this.parentElement)">
       <div class="q-num">Q4c</div>
-      <div class="q-text">Update the following incomplete algorithm so that it uses <strong>bounded iteration</strong> to find and print the <strong>sum of squares</strong> of all numbers 0 to 1000 inclusive. <em>[5 marks]</em></div>
-      <div class="q-meta"><span class="marks-badge">5 marks</span><span class="year-tag">2017</span><span class="toggle-icon">›</span></div>
+      <div class="q-text">Update the algorithm to use <strong>bounded iteration</strong> to find the <strong>sum of squares</strong> of all numbers 0 to 1000. <em>[5 marks]</em></div>
+      <div class="q-meta"><span class="marks-badge">5 marks</span><span class="year-tag">2017</span><span class="repeat-badge">REPEAT</span><span class="toggle-icon">›</span></div>
     </div>
     <div class="q-panels">
-      <div class="panel hint-panel">
-        <div class="panel-header" onclick="togglePanel(this.panelElement)"><span>💡 Hint</span><span class="arrow">▾</span></div>
-        <div class="panel-body">Use a FOR loop (bounded). Need a running total variable. The existing WHILE had the wrong termination and was printing incorrectly.</div>
-      </div>
       <div class="panel answer-panel">
         <div class="panel-header" onclick="togglePanel(this.parentElement)"><span>✓ Full Answer</span><span class="arrow">▾</span></div>
-        <div class="panel-body">
-<div class="algo">sum = 0
+        <div class="panel-body"><div class="algo">sum = 0
 FOR i = 0 TO 1000 DO
     sum = sum + (i * i)
 END FOR
-PRINT sum</div>
-          Note: The original WHILE algorithm had two bugs — it printed inside the loop (should be outside) and didn't accumulate the sum (just overwrote it each time).
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Car dealer algorithm 2018 -->
-  <div class="q-card" data-sec="B" data-year="2018">
-    <div class="q-header" onclick="toggle(this.parentElement)">
-      <div class="q-num">Q3c</div>
-      <div class="q-text">A car dealer imports used vehicles and determines government tax (gvtTax): if vehicle age &gt; 5 years, gvtTax = 140% of (cost+freight), otherwise 80%. Write an algorithm that accepts vehicle records (terminated by age = −1) and prints: VIN and tax per vehicle, total taxes, VIN &amp; tax for highest tax, and vehicle count. <em>[10 marks]</em></div>
-      <div class="q-meta"><span class="marks-badge">10 marks</span><span class="year-tag">2018</span><span class="toggle-icon">›</span></div>
-    </div>
-    <div class="q-panels">
-      <div class="panel answer-panel">
-        <div class="panel-header" onclick="togglePanel(this.parentElement)"><span>✓ Full Answer</span><span class="arrow">▾</span></div>
-        <div class="panel-body">
-<div class="algo">START
-  totalTax = 0
-  count = 0
-  maxTax = 0
-  maxVIN = ""
-  INPUT age
-  WHILE age != -1 DO
-    INPUT VIN, cost, freight
-    IF age > 5 THEN
-      gvtTax = 1.40 * (cost + freight)
-    ELSE
-      gvtTax = 0.80 * (cost + freight)
-    ENDIF
-    PRINT VIN, gvtTax
-    totalTax = totalTax + gvtTax
-    count = count + 1
-    IF gvtTax > maxTax THEN
-      maxTax = gvtTax
-      maxVIN = VIN
-    ENDIF
-    INPUT age
-  ENDWHILE
-  PRINT "Total tax:", totalTax
-  PRINT "Highest tax vehicle:", maxVIN, maxTax
-  PRINT "Vehicles processed:", count
-END</div>
-        </div>
+PRINT sum</div></div>
       </div>
     </div>
   </div>
 
   <!-- 2018 algorithm errors -->
-  <div class="q-card" data-sec="B" data-year="2018">
+  <div class="q-card repeat-q" data-sec="B" data-year="2018">
     <div class="q-header" onclick="toggle(this.parentElement)">
       <div class="q-num">Q3b</div>
-      <div class="q-text">An algorithm intended to print sum of squares for even numbers and sum of cubes for odd numbers has three logical errors. (i) Identify an assignment statement line. (ii) Identify THREE errors by line number and description. (iii) Rewrite the corrected algorithm. <em>[13 marks]</em></div>
-      <div class="q-meta"><span class="marks-badge">13 marks</span><span class="year-tag">2018</span><span class="toggle-icon">›</span></div>
+      <div class="q-text">An algorithm has THREE logical errors. (i) Identify an assignment statement. (ii) Identify each error by line number. (iii) Rewrite the corrected algorithm. <em>[13 marks]</em></div>
+      <div class="q-meta"><span class="marks-badge">13 marks</span><span class="year-tag">2018</span><span class="repeat-badge">REPEAT</span><span class="toggle-icon">›</span></div>
     </div>
     <div class="q-panels">
-      <div class="panel note-panel">
-        <div class="panel-header" onclick="togglePanel(this.parentElement)"><span>📋 Original Algorithm</span><span class="arrow">▾</span></div>
-        <div class="panel-body">
-<div class="algo">1.  START
-2.    INPUT m, n
-3.    remainder = m MOD 2
-4.    FOR m to n DO
-5.      sq = m * m
-6.      cube = m * m          ← bug
-7.      PRINT "Sum of even squares are ", sq
-8.      PRINT "Sum of odd cubes are ", cube
-9.      m = m + 1
-10.   END FOR
-11. END</div>
-        </div>
-      </div>
       <div class="panel answer-panel">
         <div class="panel-header" onclick="togglePanel(this.parentElement)"><span>✓ Full Answer</span><span class="arrow">▾</span></div>
         <div class="panel-body">
-          <strong>(i) Assignment statement example:</strong> Line 3 (<code>remainder = m MOD 2</code>) or Line 5 (<code>sq = m * m</code>)<br><br>
-          <strong>(ii) THREE errors:</strong><br>
-          <em>Error 1 — Line 6:</em> <code>cube = m * m</code> only gives square, not cube. Should be <code>cube = m * m * m</code><br>
-          <em>Error 2 — Line 3/7:</em> The remainder is computed before the loop and never updated. There's no IF condition inside the loop to check whether m is even or odd before printing.<br>
-          <em>Error 3 — Lines 7–8:</em> Both PRINT statements execute for every iteration. They should be inside IF/ELSE based on whether m is even or odd.<br><br>
-          <strong>(iii) Corrected algorithm:</strong>
-<div class="algo">START
-  INPUT m, n
-  FOR i = m TO n DO
-    IF i MOD 2 = 0 THEN
-      sq = i * i
-      PRINT "Sum of even squares: ", sq
-    ELSE
-      cube = i * i * i
-      PRINT "Sum of odd cubes: ", cube
-    ENDIF
-  END FOR
-END</div>
+          Error 1 — Line 6: <code>cube = m * m</code> should be <code>cube = m * m * m</code><br>
+          Error 2 — No IF/ELSE to distinguish even vs odd — remainder check missing inside loop<br>
+          Error 3 — Both PRINT lines execute for every value; need IF/ELSE<br><br>
+          Corrected:
+<div class="algo">FOR i = m TO n DO
+  IF i MOD 2 = 0 THEN
+    PRINT "Sum of even squares: ", i*i
+  ELSE
+    PRINT "Sum of odd cubes: ", i*i*i
+  ENDIF
+END FOR</div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- 2021 flowchart -->
-  <div class="q-card" data-sec="B" data-year="2021">
+  <!-- 2022 flowchart -->
+  <div class="q-card repeat-q" data-sec="B" data-year="2022">
     <div class="q-header" onclick="toggle(this.parentElement)">
-      <div class="q-num">Q3c(ii)</div>
-      <div class="q-text">Draw a <strong>flowchart</strong> to represent the average weight algorithm: read weights (negative = sentinel), accumulate sum and count, then print average or "No data". <em>[12 marks]</em></div>
-      <div class="q-meta"><span class="marks-badge">12 marks</span><span class="year-tag">2021</span><span class="toggle-icon">›</span></div>
+      <div class="q-num">Q3b</div>
+      <div class="q-text">Construct a <strong>flowchart</strong> to represent the algorithm (WHILE A≠−1: if A&lt;20 then A=A−1, else A=A+1; total=total+A; read A; print total). <em>[12 marks]</em></div>
+      <div class="q-meta"><span class="marks-badge">12 marks</span><span class="year-tag">2022</span><span class="repeat-badge">REPEAT</span><span class="toggle-icon">›</span></div>
     </div>
     <div class="q-panels">
       <div class="panel hint-panel">
         <div class="panel-header" onclick="togglePanel(this.parentElement)"><span>💡 Hint — Flowchart Shapes</span><span class="arrow">▾</span></div>
-        <div class="panel-body">
-          Oval = Start/End | Rectangle = Process | Diamond = Decision | Parallelogram = Input/Output<br>
-          Key decision: weight &gt; 0? Yes → accumulate, loop back. No → check count &gt; 0?
-        </div>
+        <div class="panel-body">Oval=Start/End, Rectangle=Process, Diamond=Decision, Parallelogram=Input/Output. Key decisions: A≠−1? and A&lt;20?</div>
       </div>
       <div class="panel answer-panel">
         <div class="panel-header" onclick="togglePanel(this.parentElement)"><span>✓ Full Answer (described)</span><span class="arrow">▾</span></div>
         <div class="panel-body">
 <div class="algo">START (oval)
   ↓
-PROCESS: sum=0.0, count=0 (rectangle)
+INPUT A (parallelogram)
   ↓
-INPUT: weight (parallelogram)
+PROCESS: total = 1 (rectangle)
   ↓
-DECISION: weight > 0? (diamond)
-  YES → PROCESS: sum = sum + weight; count = count + 1
-        INPUT: weight → loop back to DECISION
-  NO  ↓
-DECISION: count > 0? (diamond)
-  YES → PROCESS: average = sum/count
-        OUTPUT: average (parallelogram)
-  NO  → OUTPUT: "No data" (parallelogram)
-  ↓
-END (oval)</div>
-          <em>Award 1 mark per correct symbol/connection. Key marks: correct loop, correct sentinel handling, correct two-way post-loop decision.</em>
+DECISION: A ≠ −1? (diamond)
+  NO → OUTPUT total (parallelogram) → END
+  YES ↓
+  PROCESS: A = 2 × A (rectangle)  ← multiply before IF
+    ↓
+  DECISION: A < 20 (diamond)
+    YES → PROCESS: A = A − 1
+    NO  → PROCESS: A = A + 1
+    ↓
+  PROCESS: total = total + A (rectangle)
+    ↓
+  INPUT A (parallelogram)
+    ↓
+  Loop back to DECISION: A ≠ −1?</div>
+          <em>Marks awarded for: correct shapes (1 each), correct loop structure, correct sentinel check, correct IF/ELSE branching, total accumulation.</em>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- 2021 Carifta tickets -->
-  <div class="q-card" data-sec="B" data-year="2021">
+  <!-- 2023 Q3a top-down vs bottom-up -->
+  <div class="q-card" data-sec="B" data-year="2023">
     <div class="q-header" onclick="toggle(this.parentElement)">
-      <div class="q-num">Q4c</div>
-      <div class="q-text">Write pseudocode for Carifta Games ticket billing system: stands B(US$19, 5% disc), G(US$29, 3% disc), T(US$39, no disc). For each customer: display menu, read stand choice &amp; numOfTickets, compute bill, accumulate revenue &amp; totNumOfTickets. <em>[16 marks]</em></div>
-      <div class="q-meta"><span class="marks-badge">16 marks</span><span class="year-tag">2021</span><span class="toggle-icon">›</span></div>
+      <div class="q-num">Q3a</div>
+      <div class="q-text">State how the <strong>top-down</strong> problem-solving method differs from the <strong>bottom-up</strong> method. <em>[2 marks]</em></div>
+      <div class="q-meta"><span class="marks-badge">2 marks</span><span class="year-tag">2023</span><span class="toggle-icon">›</span></div>
     </div>
     <div class="q-panels">
       <div class="panel answer-panel">
         <div class="panel-header" onclick="togglePanel(this.parentElement)"><span>✓ Full Answer</span><span class="arrow">▾</span></div>
         <div class="panel-body">
-<div class="algo">(i) Initialize:
-  totNumOfTickets = 0
-  revenue = 0.0
-
-(ii) Display menu:
-  PRINT "B - Bleacher (US$19, 5% discount)"
-  PRINT "G - Grands (US$29, 3% discount)"
-  PRINT "T - Track Side (US$39, no discount)"
-  PRINT "E - Exit"
-  INPUT stand
-
-(iii) Read customer data:
-  INPUT custNum
-  INPUT numOfTickets
-
-(iv) Calculate bill and update totals:
-  IF stand = 'B' THEN
-    discRate = 0.05
-    bill = numOfTickets * 19 * (1 - discRate)
-  ELSE IF stand = 'G' THEN
-    discRate = 0.03
-    bill = numOfTickets * 29 * (1 - discRate)
-  ELSE IF stand = 'T' THEN
-    bill = numOfTickets * 39
-  ENDIF
-  revenue = revenue + bill
-  totNumOfTickets = totNumOfTickets + numOfTickets
-  PRINT custNum, bill</div>
+          <strong>Top-down:</strong> The problem is broken down from the overall goal into smaller and smaller sub-problems (stepwise refinement), until each sub-problem is simple enough to solve directly.<br><br>
+          <strong>Bottom-up:</strong> Small, reusable components/modules are built and tested first, then combined to form larger parts of the solution, working up to the complete system.
         </div>
       </div>
     </div>
   </div>
 
-</div><!-- end algo topic -->
+  <!-- 2023 Q3b problem-solving stages -->
+  <div class="q-card" data-sec="B" data-year="2023">
+    <div class="q-header" onclick="toggle(this.parentElement)">
+      <div class="q-num">Q3b</div>
+      <div class="q-text">Briefly describe: (i) Problem definition, (ii) Problem analysis, (iii) Identify and evaluate possible solutions, (iv) Implementation and review. <em>[4 marks]</em></div>
+      <div class="q-meta"><span class="marks-badge">4 marks</span><span class="year-tag">2023</span><span class="toggle-icon">›</span></div>
+    </div>
+    <div class="q-panels">
+      <div class="panel answer-panel">
+        <div class="panel-header" onclick="togglePanel(this.parentElement)"><span>✓ Full Answer</span><span class="arrow">▾</span></div>
+        <div class="panel-body">
+          (i) <strong>Problem definition:</strong> Clearly stating what the problem is — its scope, inputs, outputs and constraints.<br>
+          (ii) <strong>Problem analysis:</strong> Breaking the problem into components; understanding relationships and identifying what data is needed.<br>
+          (iii) <strong>Identify and evaluate possible solutions:</strong> Listing alternative approaches and comparing them on criteria such as efficiency, feasibility and cost.<br>
+          (iv) <strong>Implementation and review:</strong> Coding/building the chosen solution, testing it against requirements, and refining based on results.
+        </div>
+      </div>
+    </div>
+  </div>
 
-<!-- ============================================================ -->
-<!-- SECTION C: PROGRAMMING -->
-<!-- ============================================================ -->
+  <!-- 2023 Q3c food court pseudocode -->
+  <div class="q-card" data-sec="B" data-year="2023">
+    <div class="q-header" onclick="toggle(this.parentElement)">
+      <div class="q-num">Q3c</div>
+      <div class="q-text">Food court: Jamaican $12/4%, Barbadian $10/3%, Trinidadian $8/1% service charge. 10% sales tax. 5% discount if &gt;1 meal. Write pseudocode to calculate a single customer's bill using variables <code>bill</code>, <code>menuOption</code>, <code>numOfMeals</code>. Include exit option. <em>[marks not specified]</em></div>
+      <div class="q-meta"><span class="marks-badge">~10 marks</span><span class="year-tag">2023</span><span class="toggle-icon">›</span></div>
+    </div>
+    <div class="q-panels">
+      <div class="panel answer-panel">
+        <div class="panel-header" onclick="togglePanel(this.parentElement)"><span>✓ Full Answer</span><span class="arrow">▾</span></div>
+        <div class="panel-body">
+<div class="algo">DISPLAY "1. Jamaican ($12, 4% service)"
+DISPLAY "2. Barbadian ($10, 3% service)"
+DISPLAY "3. Trinidadian ($8, 1% service)"
+DISPLAY "4. Exit"
+INPUT menuOption
 
+IF menuOption = 4 THEN
+  STOP
+ENDIF
+
+INPUT numOfMeals
+
+IF menuOption = 1 THEN
+  basePrice = 12
+  serviceRate = 0.04
+ELSE IF menuOption = 2 THEN
+  basePrice = 10
+  serviceRate = 0.03
+ELSE IF menuOption = 3 THEN
+  basePrice = 8
+  serviceRate = 0.01
+ENDIF
+
+bill = numOfMeals * basePrice
+bill = bill + (bill * serviceRate)   // add service charge
+bill = bill + (bill * 0.10)          // add 10% sales tax
+
+IF numOfMeals > 1 THEN
+  bill = bill - (bill * 0.05)        // 5% discount
+ENDIF
+
+DISPLAY "Bill: $", bill</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2023 Q4a unbounded vs bounded iteration -->
+  <div class="q-card repeat-q" data-sec="B" data-year="2023">
+    <div class="q-header" onclick="toggle(this.parentElement)">
+      <div class="q-num">Q4a</div>
+      <div class="q-text">Algorithm 1 uses WHILE A≠0 with READ A; Algorithm 2 uses FOR X=1 TO 15. (i) Which illustrates <strong>unbounded iteration</strong>? Justify. (ii) How does Algorithm 2's loop terminate? <em>[3 marks]</em></div>
+      <div class="q-meta"><span class="marks-badge">3 marks</span><span class="year-tag">2023</span><span class="repeat-badge">REPEAT</span><span class="toggle-icon">›</span></div>
+    </div>
+    <div class="q-panels">
+      <div class="panel answer-panel">
+        <div class="panel-header" onclick="togglePanel(this.parentElement)"><span>✓ Full Answer</span><span class="arrow">▾</span></div>
+        <div class="panel-body">
+          (i) <strong>Algorithm 1</strong> — unbounded iteration (WHILE loop). The number of iterations is not known in advance; it depends on user input. The loop continues until A = 0 is entered.<br><br>
+          (ii) Algorithm 2 terminates when X exceeds 15. The FOR loop increments X by 1 each time; after the iteration where X=15, X becomes 16 which fails the condition X≤15, ending the loop.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2023 Q4c three errors in cube algorithm -->
+  <div class="q-card repeat-q" data-sec="B" data-year="2023">
+    <div class="q-header" onclick="toggle(this.parentElement)">
+      <div class="q-num">Q4c</div>
+      <div class="q-text">The algorithm (i=4; while i&lt;14: i*i*i=cube; print i,cube; i=i+1) should print cubes of even integers 4–14 inclusive. Identify and correct the THREE errors. <em>[6 marks]</em></div>
+      <div class="q-meta"><span class="marks-badge">6 marks</span><span class="year-tag">2023</span><span class="repeat-badge">REPEAT</span><span class="toggle-icon">›</span></div>
+    </div>
+    <div class="q-panels">
+      <div class="panel repeat-panel">
+        <div class="panel-header" onclick="togglePanel(this.parentElement)"><span>🔁 Pattern Alert</span><span class="arrow">▾</span></div>
+        <div class="panel-body">"Identify THREE errors in an algorithm" has appeared in 2017, 2018, and 2023. Always check: loop bounds, step size, variable assignment order, and output placement.</div>
+      </div>
+      <div class="panel answer-panel">
+        <div class="panel-header" onclick="togglePanel(this.parentElement)"><span>✓ Full Answer</span><span class="arrow">▾</span></div>
+        <div class="panel-body">
+          Original buggy algorithm:
+<div class="algo">1. i = 4
+2. while i < 14
+3.     i * i * i = cube       ← Error 1
+4.     print i, cube
+5.     i = i + 1              ← Error 2
+6. end while</div>
+          <strong>Error 1 — Line 2: while i &lt; 14</strong><br>
+          Should be <code>while i &lt;= 14</code> — 14 is inclusive; the current condition stops at i=13.<br><br>
+          <strong>Error 2 — Line 3: <code>i * i * i = cube</code></strong><br>
+          Assignment is reversed. Should be <code>cube = i * i * i</code>.<br><br>
+          <strong>Error 3 — Line 5: <code>i = i + 1</code></strong><br>
+          Should be <code>i = i + 2</code> — only even integers required; incrementing by 1 includes odd values.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2022 iteration types -->
+  <div class="q-card repeat-q" data-sec="B" data-year="2022">
+    <div class="q-header" onclick="toggle(this.parentElement)">
+      <div class="q-num">Q4b(ii)</div>
+      <div class="q-text">Define <strong>iteration</strong> and give ONE example. <em>[2 marks]</em></div>
+      <div class="q-meta"><span class="marks-badge">2 marks</span><span class="year-tag">2022</span><span class="repeat-badge">REPEAT</span><span class="toggle-icon">›</span></div>
+    </div>
+    <div class="q-panels">
+      <div class="panel answer-panel">
+        <div class="panel-header" onclick="togglePanel(this.parentElement)"><span>✓ Full Answer</span><span class="arrow">▾</span></div>
+        <div class="panel-body">
+          Iteration is a control construct that <strong>repeats a block of instructions</strong> a number of times or until a condition is met.<br>
+          Example: <code>FOR i = 1 TO 10: PRINT i END FOR</code> (bounded — known number of repeats)<br>
+          Example: <code>WHILE x &gt; 0: x = x - 1 END WHILE</code> (unbounded — depends on condition)
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end algo -->
+
+<!-- ============================================================ SECTION C ============================================================ -->
 <div class="topic-group" data-sec="C" id="tg-c-code">
   <div class="topic-header">
     <div class="topic-icon" style="background:rgba(163,113,247,0.15);">💻</div>
     <div>
       <div class="topic-title" style="color:var(--prog);">C PROGRAMMING</div>
-      <div style="font-size:12px;color:var(--muted);">Functions · Arrays · Structs · Loops · File I/O · Tracing · Errors</div>
+      <div style="font-size:12px;color:var(--muted);">Functions · Arrays · Structs · Loops · Tracing · Errors</div>
     </div>
-    <div class="topic-desc">Section C</div>
+    <div class="topic-desc">Section C &nbsp;<span class="repeat-badge">5/5 YEARS</span></div>
   </div>
 
-  <!-- Factorial trace 2017 -->
-  <div class="q-card" data-sec="C" data-year="2017">
+  <!-- 2017 fact(4) trace -->
+  <div class="q-card repeat-q" data-sec="C" data-year="2017">
     <div class="q-header" onclick="toggle(this.parentElement)">
       <div class="q-num">Q5a(i)</div>
-      <div class="q-text">Trace the function <code>fact(4)</code> — state the values of i, n, and result at the <strong>beginning of each iteration</strong>. <em>[4 marks]</em></div>
-      <div class="q-meta"><span class="marks-badge">4 marks</span><span class="year-tag">2017</span><span class="toggle-icon">›</span></div>
+      <div class="q-text">Trace <code>fact(4)</code> — state i, n, result at the <strong>beginning of each iteration</strong>. <em>[4 marks]</em></div>
+      <div class="q-meta"><span class="marks-badge">4 marks</span><span class="year-tag">2017</span><span class="repeat-badge">REPEAT</span><span class="toggle-icon">›</span></div>
     </div>
     <div class="q-panels">
       <div class="panel note-panel">
-        <div class="panel-header" onclick="togglePanel(this.parentElement)"><span>📋 Function Code</span><span class="arrow">▾</span></div>
-        <div class="panel-body">
-<pre>int fact(int n) {
+        <div class="panel-header" onclick="togglePanel(this.parentElement)"><span>📋 Code</span><span class="arrow">▾</span></div>
+        <div class="panel-body"><pre>int fact(int n) {
     int result = 1;
-    for (int i = n; i >= 1; i--) {
+    for (int i = n; i >= 1; i--)
         result = result * i;
-    }
     return result;
-}</pre>
-        </div>
+}</pre></div>
       </div>
       <div class="panel answer-panel">
         <div class="panel-header" onclick="togglePanel(this.parentElement)"><span>✓ Full Answer</span><span class="arrow">▾</span></div>
         <div class="panel-body">
-          <table>
-            <tr><th>Iteration</th><th>i</th><th>n</th><th>result (start)</th></tr>
-            <tr><td>1</td><td>4</td><td>4</td><td>1</td></tr>
-            <tr><td>2</td><td>3</td><td>4</td><td>4</td></tr>
-            <tr><td>3</td><td>2</td><td>4</td><td>12</td></tr>
-            <tr><td>4</td><td>1</td><td>4</td><td>24</td></tr>
-          </table>
+          <table><tr><th>Iter</th><th>i</th><th>n</th><th>result (start)</th></tr><tr><td>1</td><td>4</td><td>4</td><td>1</td></tr><tr><td>2</td><td>3</td><td>4</td><td>4</td></tr><tr><td>3</td><td>2</td><td>4</td><td>12</td></tr><tr><td>4</td><td>1</td><td>4</td><td>24</td></tr></table>
           Returns: 24 (= 4!)
         </div>
       </div>
     </div>
   </div>
 
-  <!-- choose function 2017 -->
-  <div class="q-card" data-sec="C" data-year="2017">
+  <!-- 2023 Q6d fact(5) trace — different function (uses + not *) -->
+  <div class="q-card repeat-q" data-sec="C" data-year="2023">
     <div class="q-header" onclick="toggle(this.parentElement)">
-      <div class="q-num">Q5a(ii)</div>
-      <div class="q-text">Write the C function <code>choose(int n, int r)</code> that returns n! / ((n−r)! × r!) using the fact() function. <em>[3 marks]</em></div>
-      <div class="q-meta"><span class="marks-badge">3 marks</span><span class="year-tag">2017</span><span class="toggle-icon">›</span></div>
+      <div class="q-num">Q6d</div>
+      <div class="q-text">Complete the trace table for <code>fact(5)</code> — but note: <code>result = result + i</code> (not multiplication). State i, n, result at beginning of each iteration. <em>[5 marks]</em></div>
+      <div class="q-meta"><span class="marks-badge">5 marks</span><span class="year-tag">2023</span><span class="repeat-badge">REPEAT</span><span class="toggle-icon">›</span></div>
     </div>
     <div class="q-panels">
+      <div class="panel repeat-panel">
+        <div class="panel-header" onclick="togglePanel(this.parentElement)"><span>🔁 Pattern Alert</span><span class="arrow">▾</span></div>
+        <div class="panel-body">Trace table of a <code>fact(n)</code> function appeared in 2017 AND 2023. <strong>Critical difference</strong>: the 2023 version uses <code>result + i</code> (summation), not <code>result * i</code> (factorial). Read carefully!</div>
+      </div>
+      <div class="panel note-panel">
+        <div class="panel-header" onclick="togglePanel(this.parentElement)"><span>📋 Code</span><span class="arrow">▾</span></div>
+        <div class="panel-body"><pre>int fact(int n) {
+    int result = 1;
+    for (int i = n; i >= 1; i--)
+        result = result + i;
+    return result;
+}</pre></div>
+      </div>
       <div class="panel answer-panel">
         <div class="panel-header" onclick="togglePanel(this.parentElement)"><span>✓ Full Answer</span><span class="arrow">▾</span></div>
         <div class="panel-body">
-<pre>int choose(int n, int r) {
-    return fact(n) / (fact(n - r) * fact(r));
-}</pre>
+          <table><tr><th>Iter</th><th>i</th><th>n</th><th>result (start of iter)</th></tr><tr><td>1</td><td>5</td><td>5</td><td>1</td></tr><tr><td>2</td><td>4</td><td>5</td><td>6</td></tr><tr><td>3</td><td>3</td><td>5</td><td>10</td></tr><tr><td>4</td><td>2</td><td>5</td><td>13</td></tr><tr><td>5</td><td>1</td><td>5</td><td>15</td></tr></table>
+          Returns: 16 (1+5+4+3+2+1 = 16)
         </div>
       </div>
     </div>
   </div>
 
-  <!-- numReadings and avgTemp 2017 -->
-  <div class="q-card" data-sec="C" data-year="2017">
+  <!-- 2022 Q5c pyramidVolume -->
+  <div class="q-card" data-sec="C" data-year="2022">
     <div class="q-header" onclick="toggle(this.parentElement)">
       <div class="q-num">Q5c</div>
-      <div class="q-text">Given the <code>caribHistory</code> struct array (locations, monthly temperature readings, -1=error flag). Write: (i) <code>numReadings(int islandIndex)</code> — returns count of valid readings. (ii) <code>avgTemp(int islandIndex)</code> — returns average temperature ignoring −1. (iii) main() that prints each location's name and average (or "invalid" if &lt; half readings are valid). <em>[15 marks]</em></div>
-      <div class="q-meta"><span class="marks-badge">15 marks</span><span class="year-tag">2017</span><span class="toggle-icon">›</span></div>
+      <div class="q-text">Write a C function <code>pyramidVolume</code> that accepts three parameters: <code>baseLength</code> (l), <code>baseWidth</code> (w), and <code>height</code> (h). It calculates and returns the volume of a rectangular-base pyramid: V = (1/3) × l × w × h. <em>[7 marks]</em></div>
+      <div class="q-meta"><span class="marks-badge">7 marks</span><span class="year-tag">2022</span><span class="toggle-icon">›</span></div>
     </div>
     <div class="q-panels">
       <div class="panel answer-panel">
         <div class="panel-header" onclick="togglePanel(this.parentElement)"><span>✓ Full Answer</span><span class="arrow">▾</span></div>
-        <div class="panel-body">
-<pre>const int NUM_MONTHS = 12;
-const int NUM_LOCATIONS = 20;
-const int NAME_LENGTH = 20;
+        <div class="panel-body"><pre>float pyramidVolume(float baseLength, float baseWidth, float height) {
+    float volume;
+    volume = (1.0/3.0) * baseLength * baseWidth * height;
+    return volume;
+}</pre>
+          Note: Use <code>1.0/3.0</code> (not <code>1/3</code>) to avoid integer division giving 0.
+        </div>
+      </div>
+    </div>
+  </div>
 
-struct LocationHistory {
-    char locationName[NAME_LENGTH];
-    int readings[NUM_MONTHS];
+  <!-- 2022 Q6b struct vegeRec -->
+  <div class="q-card repeat-q" data-sec="C" data-year="2022">
+    <div class="q-header" onclick="toggle(this.parentElement)">
+      <div class="q-num">Q6b</div>
+      <div class="q-text">A vendor sells vegetables. Each has: ID (int), cost price (float), selling price (float), quantity in stock (int). (i) Write a C struct declaration for <code>vegeRec</code>. (ii) Declare variables <code>carrot</code> and <code>peas</code>. (iii) Input data into <code>carrot</code>. (iv) Swap the cost prices of <code>tomato</code> and <code>beans</code>. <em>[8 marks]</em></div>
+      <div class="q-meta"><span class="marks-badge">8 marks</span><span class="year-tag">2022</span><span class="repeat-badge">REPEAT</span><span class="toggle-icon">›</span></div>
+    </div>
+    <div class="q-panels">
+      <div class="panel answer-panel">
+        <div class="panel-header" onclick="togglePanel(this.parentElement)"><span>✓ Full Answer</span><span class="arrow">▾</span></div>
+        <div class="panel-body"><pre>/* (i) Struct declaration */
+struct vegeRec {
+    int id;
+    float costPrice;
+    float sellingPrice;
+    int quantity;
 };
-LocationHistory caribHistory[NUM_LOCATIONS];
 
-/* (i) Count valid readings */
-int numReadings(int islandIndex) {
+/* (ii) Declare two variables */
+struct vegeRec carrot, peas;
+
+/* (iii) Input data into carrot */
+scanf("%d", &carrot.id);
+scanf("%f", &carrot.costPrice);
+scanf("%f", &carrot.sellingPrice);
+scanf("%d", &carrot.quantity);
+
+/* (iv) Swap cost prices of tomato and beans */
+float temp;
+temp = tomato.costPrice;
+tomato.costPrice = beans.costPrice;
+beans.costPrice = temp;</pre>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2022 Q6c function total -->
+  <div class="q-card repeat-q" data-sec="C" data-year="2022">
+    <div class="q-header" onclick="toggle(this.parentElement)">
+      <div class="q-num">Q6c</div>
+      <div class="q-text">Write a C function <code>total</code> that accepts a <strong>ten-value integer array</strong> as a parameter, and returns a count of numbers in the array that are <strong>LESS THAN 20</strong>. <em>[5 marks]</em></div>
+      <div class="q-meta"><span class="marks-badge">5 marks</span><span class="year-tag">2022</span><span class="repeat-badge">REPEAT</span><span class="toggle-icon">›</span></div>
+    </div>
+    <div class="q-panels">
+      <div class="panel answer-panel">
+        <div class="panel-header" onclick="togglePanel(this.panelElement)"><span>✓ Full Answer</span><span class="arrow">▾</span></div>
+        <div class="panel-body"><pre>int total(int arr[], int n) {
     int count = 0;
-    for (int m = 0; m < NUM_MONTHS; m++) {
-        if (caribHistory[islandIndex].readings[m] != -1)
+    for (int i = 0; i < n; i++) {
+        if (arr[i] < 20)
             count++;
     }
     return count;
-}
-
-/* (ii) Average temperature */
-float avgTemp(int islandIndex) {
-    int sum = 0;
-    int valid = numReadings(islandIndex);
-    if (valid == 0) return 0.0;
-    for (int m = 0; m < NUM_MONTHS; m++) {
-        if (caribHistory[islandIndex].readings[m] != -1)
-            sum += caribHistory[islandIndex].readings[m];
-    }
-    return (float)sum / valid;
-}
-
-/* (iii) Main report */
-int main() {
-    for (int i = 0; i < NUM_LOCATIONS; i++) {
-        int valid = numReadings(i);
-        printf("%s: ", caribHistory[i].locationName);
-        if (valid >= NUM_MONTHS / 2) {
-            printf("Average = %.2f\n", avgTemp(i));
-        } else {
-            printf("Data set is invalid\n");
-        }
-    }
-    return 0;
 }</pre>
+          Call with: <code>total(myArray, 10);</code>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- 2017 zone fee function -->
-  <div class="q-card" data-sec="C" data-year="2017">
-    <div class="q-header" onclick="toggle(this.parentElement)">
-      <div class="q-num">Q6c–d</div>
-      <div class="q-text">A courier company charges by zone (N=$30, S=$40, E=$55, W=$70) + $5/lb. Customer ID starts with zone letter. (i) Write <code>getZoneFee(char id[])</code>. (ii) Write <code>deliveryFee(char id[], float weight)</code>. (e) Show output of nested for loop code. <em>[12 marks]</em></div>
-      <div class="q-meta"><span class="marks-badge">12 marks</span><span class="year-tag">2017</span><span class="toggle-icon">›</span></div>
-    </div>
-    <div class="q-panels">
-      <div class="panel answer-panel">
-        <div class="panel-header" onclick="togglePanel(this.parentElement)"><span>✓ Full Answer</span><span class="arrow">▾</span></div>
-        <div class="panel-body">
-<pre>/* (i) getZoneFee */
-int getZoneFee(char id[]) {
-    switch(id[0]) {
-        case 'N': return 30;
-        case 'S': return 40;
-        case 'E': return 55;
-        case 'W': return 70;
-        default: return 0;
-    }
-}
-
-/* (ii) deliveryFee */
-float deliveryFee(char id[], float weight) {
-    return getZoneFee(id) + (5.0 * weight);
-}
-
-/* (e) Nested loop output:
-for(c=1; c<=5; c++) {
-    for(k=1; k<=c; k++) printf("%d", c);
-    printf("\n");
-}
-
-Output:
-1
-22
-333
-4444
-55555
-*/</pre>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- power function 2018 -->
-  <div class="q-card" data-sec="C" data-year="2018">
-    <div class="q-header" onclick="toggle(this.parentElement)">
-      <div class="q-num">Q4</div>
-      <div class="q-text">The function <code>power(3, 5)</code> is called. (a) Trace the output. (b) Draw a flowchart describing the function. (c) Rewrite the function replacing EACH while loop with a for loop. <em>[25 marks]</em></div>
-      <div class="q-meta"><span class="marks-badge">25 marks</span><span class="year-tag">2018</span><span class="toggle-icon">›</span></div>
-    </div>
-    <div class="q-panels">
-      <div class="panel note-panel">
-        <div class="panel-header" onclick="togglePanel(this.parentElement)"><span>📋 Function Code</span><span class="arrow">▾</span></div>
-        <div class="panel-body">
-<pre>int power(int b, int x) {
-    int result=1, numstars=x, count;
-    while (numstars > 0) {
-        result = result * b;
-        printf("Number of multiplications left.");
-        count = numstars;
-        while (count > 0) {
-            printf("*");
-            count--;
-        }
-        printf("\n");
-        numstars--;
-    }
-    printf("%d raised to the power of %d is %d", b, x, result);
-    return result;
-}</pre>
-        </div>
-      </div>
-      <div class="panel answer-panel">
-        <div class="panel-header" onclick="togglePanel(this.parentElement)"><span>✓ Full Answer</span><span class="arrow">▾</span></div>
-        <div class="panel-body">
-          <strong>(a) Output for power(3,5):</strong>
-<pre>Number of multiplications left.*****
-Number of multiplications left.****
-Number of multiplications left.***
-Number of multiplications left.**
-Number of multiplications left.*
-3 raised to the power of 5 is 243</pre>
-          <strong>(c) With for loops:</strong>
-<pre>int power(int b, int x) {
-    int result = 1;
-    for (int numstars = x; numstars > 0; numstars--) {
-        result = result * b;
-        printf("Number of multiplications left.");
-        for (int count = numstars; count > 0; count--) {
-            printf("*");
-        }
-        printf("\n");
-    }
-    printf("%d raised to the power of %d is %d", b, x, result);
-    return result;
-}</pre>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- 2018 strCompare -->
-  <div class="q-card" data-sec="C" data-year="2018">
-    <div class="q-header" onclick="toggle(this.parentElement)">
-      <div class="q-num">Q6f–g</div>
-      <div class="q-text">Describe what lines 15–20 and lines 23–28 of strCompare do. Then give return values for: (i) strCompare("dog","goat"), (ii) strCompare("dog","cat"), (iii) strCompare("dog","dog"), (iv) strCompare("dog","doghouse"). <em>[10 marks]</em></div>
-      <div class="q-meta"><span class="marks-badge">10 marks</span><span class="year-tag">2018</span><span class="toggle-icon">›</span></div>
-    </div>
-    <div class="q-panels">
-      <div class="panel answer-panel">
-        <div class="panel-header" onclick="togglePanel(this.parentElement)"><span>✓ Full Answer</span><span class="arrow">▾</span></div>
-        <div class="panel-body">
-          <strong>Lines 15–20:</strong> When index i is within bounds of BOTH strings (i &lt; len1 AND i &lt; len2), it compares characters at position i. If a[i] &gt; b[i], returns −1 (a comes after b). If a[i] &lt; b[i], returns 1 (a comes before b).<br><br>
-          <strong>Lines 23–28:</strong> When i has gone past one string's end (strings differ in length). If i &gt; len2, string b ended first → a is longer → returns −1. If i &gt; len1, string a ended first → b is longer → returns 1. Otherwise (i at end of both) → returns 0 (equal).<br><br>
-          <strong>(g) Return values:</strong><br>
-          (i) strCompare("dog","goat"): 'd'&lt;'g' → <span class="highlight">returns 1</span><br>
-          (ii) strCompare("dog","cat"): 'd'&gt;'c' → <span class="highlight">returns −1</span><br>
-          (iii) strCompare("dog","dog"): all chars equal, same length → <span class="highlight">returns 0</span><br>
-          (iv) strCompare("dog","doghouse"): first 3 chars equal, then i=3 &gt; len1(3) → <span class="highlight">returns 1</span>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- 2021 printPowers -->
-  <div class="q-card" data-sec="C" data-year="2021">
+  <!-- 2023 Q5b customer struct -->
+  <div class="q-card repeat-q" data-sec="C" data-year="2023">
     <div class="q-header" onclick="toggle(this.parentElement)">
       <div class="q-num">Q5b</div>
-      <div class="q-text">Write the <strong>output</strong> of the function <code>printPowers()</code>. Then write the function <code>int power(int base, int expt)</code> using only basic operations. Write a prototype and the condition requiring one. Write an adjusted printPowers that prints 3 raised to each EVEN power between 1 and 6. <em>[22 marks]</em></div>
-      <div class="q-meta"><span class="marks-badge">22 marks</span><span class="year-tag">2021</span><span class="toggle-icon">›</span></div>
+      <div class="q-text">(i) Write a C struct declaration for a customer: ID (int), balance (float). (ii) Declare variable <code>Andrew</code> (ID=1230, balance=$33.55). (iii) Read a purchase amount, apply 10% discount, update Andrew's balance. <em>[8 marks]</em></div>
+      <div class="q-meta"><span class="marks-badge">8 marks</span><span class="year-tag">2023</span><span class="repeat-badge">REPEAT</span><span class="toggle-icon">›</span></div>
     </div>
     <div class="q-panels">
-      <div class="panel note-panel">
-        <div class="panel-header" onclick="togglePanel(this.parentElement)"><span>📋 Original printPowers</span><span class="arrow">▾</span></div>
-        <div class="panel-body">
-<pre>void printPowers() {
-    int i=1, j, pow2=1, base=2;
-    while (i < 4) {
-        for (j=i; j<=i; j++) {
-            pow2 = pow2 * base;
-            printf("2 raised to the power of %d is %d\n", i, pow2);
-        }
-        i++;
-    }
-}</pre>
-        </div>
+      <div class="panel repeat-panel">
+        <div class="panel-header" onclick="togglePanel(this.parentElement)"><span>🔁 Pattern Alert</span><span class="arrow">▾</span></div>
+        <div class="panel-body">C structs appeared in 2017, 2018, 2022, and 2023. Always practice: declare struct, instantiate variable with values, read fields with scanf, perform calculations on fields.</div>
       </div>
       <div class="panel answer-panel">
         <div class="panel-header" onclick="togglePanel(this.parentElement)"><span>✓ Full Answer</span><span class="arrow">▾</span></div>
-        <div class="panel-body">
-          <strong>(i) Output:</strong><br>
-          The inner for loop runs exactly once per outer iteration (j=i to j&lt;=i, one step).<br>
-<pre>2 raised to the power of 1 is 2
-2 raised to the power of 2 is 4
-2 raised to the power of 3 is 8</pre>
-          <strong>(ii) power() function:</strong>
-<pre>int power(int base, int expt) {
-    int result = 1;
-    for (int i = 0; i < expt; i++) {
-        result = result * base;
-    }
-    return result;
-}</pre>
-          <strong>(iii) Prototype:</strong>
-<pre>int power(int base, int expt);</pre>
-          <strong>Condition requiring prototype:</strong> When the function is <em>called before it is defined</em> in the source file (i.e. the call appears above the function definition).<br><br>
-          <strong>(v) Adjusted printPowers — 3 to even powers 2,4,6:</strong>
-<pre>void printPowers() {
-    for (int i = 2; i <= 6; i += 2) {
-        int result = power(3, i);
-        printf("3 raised to the power of %d is %d\n", i, result);
-    }
-}</pre>
+        <div class="panel-body"><pre>/* (i) Struct declaration */
+struct Customer {
+    int customerID;
+    float balance;
+};
+
+/* (ii) Declare Andrew with values */
+struct Customer Andrew;
+Andrew.customerID = 1230;
+Andrew.balance = 33.55;
+
+/* (iii) Read purchase, apply 10% discount, update balance */
+float purchase;
+scanf("%f", &purchase);
+float discountedCost = purchase * 0.90;   /* 10% discount */
+Andrew.balance = Andrew.balance - discountedCost;</pre>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- 2021 syntax errors -->
-  <div class="q-card" data-sec="C" data-year="2021">
+  <!-- 2023 Q6c arraySum -->
+  <div class="q-card repeat-q" data-sec="C" data-year="2023">
     <div class="q-header" onclick="toggle(this.parentElement)">
       <div class="q-num">Q6c</div>
-      <div class="q-text">The C code below has two syntax errors. (i) Describe each error and write the corrected line. (ii) State ONE possible semantic error when the corrected version runs. (iii) Write a program using <code>int numFreq[10]</code> to find the most frequently submitted integer and the sum. <em>[17 marks]</em></div>
-      <div class="q-meta"><span class="marks-badge">17 marks</span><span class="year-tag">2021</span><span class="toggle-icon">›</span></div>
+      <div class="q-text">Write a C function <code>arraySum</code> that accepts an integer array and its size as parameters, and returns the <strong>sum of all elements NOT greater than 50</strong>. <em>[7 marks]</em></div>
+      <div class="q-meta"><span class="marks-badge">7 marks</span><span class="year-tag">2023</span><span class="repeat-badge">REPEAT</span><span class="toggle-icon">›</span></div>
     </div>
     <div class="q-panels">
-      <div class="panel note-panel">
-        <div class="panel-header" onclick="togglePanel(this.parentElement)"><span>📋 Buggy Code</span><span class="arrow">▾</span></div>
-        <div class="panel-body">
-<pre>void main(){
-    int numList[10];
-    int newNum=0, ndx=0, sum=0;
-    while (newNum ≥ 0)     ← Error 1
-    {
-        scanf("%d", newNum);   ← Error 2
-        if (newNum > 0) {
-            numList[ndx] = newNum;
-            sum += newNum;
-            ndx++;
-        }
-    }
-    printf("%d", sum);
-}</pre>
-        </div>
+      <div class="panel repeat-panel">
+        <div class="panel-header" onclick="togglePanel(this.parentElement)"><span>🔁 Pattern Alert</span><span class="arrow">▾</span></div>
+        <div class="panel-body">"Write a function that loops an array with a conditional sum/count" appeared in 2017, 2021, 2022, and 2023. This is almost guaranteed to appear. Practice the pattern: loop + if + accumulate + return.</div>
       </div>
       <div class="panel answer-panel">
         <div class="panel-header" onclick="togglePanel(this.parentElement)"><span>✓ Full Answer</span><span class="arrow">▾</span></div>
-        <div class="panel-body">
-          <strong>(i) Syntax errors:</strong><br>
-          <em>Error 1 — while condition:</em> <code>≥</code> is not valid C syntax. Must use <code>&gt;=</code><br>
-          Corrected: <code>while (newNum &gt;= 0)</code><br><br>
-          <em>Error 2 — scanf call:</em> <code>scanf</code> needs the <em>address</em> of the variable, not the variable itself. Missing &amp; operator.<br>
-          Corrected: <code>scanf("%d", &amp;newNum);</code><br><br>
-          <strong>(ii) Semantic error:</strong> Array index out of bounds — if more than 10 positive integers are entered, <code>ndx</code> exceeds 9, writing beyond the end of <code>numList[10]</code> (buffer overflow).<br><br>
-          <strong>(iii) Program with frequency tracking:</strong>
-<pre>#include &lt;stdio.h&gt;
-
-int main() {
-    int numFreq[10] = {0};  /* initialized to 0 */
-    int sum = 0, newNum = 0;
-    
-    printf("Enter integers (negative to stop):\n");
-    scanf("%d", &newNum);
-    
-    while (newNum >= 0) {
-        if (newNum < 10) {   /* error handling: only 0-9 tracked */
-            numFreq[newNum]++;
-            sum += newNum;
-        }
-        scanf("%d", &newNum);
-    }
-    
-    /* Find most frequent */
-    int maxFreq = 0, mostFrequent = 0;
-    for (int i = 0; i < 10; i++) {
-        if (numFreq[i] > maxFreq) {
-            maxFreq = numFreq[i];
-            mostFrequent = i;
+        <div class="panel-body"><pre>int arraySum(int arr[], int size) {
+    int sum = 0;
+    for (int i = 0; i < size; i++) {
+        if (arr[i] <= 50) {
+            sum = sum + arr[i];
         }
     }
-    
-    printf("Most frequent: %d\n", mostFrequent);
-    printf("Sum: %d\n", sum);
-    return 0;
+    return sum;
 }</pre>
+          Note: "NOT greater than 50" means ≤ 50, so use <code>&lt;= 50</code>.
         </div>
       </div>
     </div>
   </div>
 
-</div><!-- end c programming topic -->
+</div><!-- end c programming -->
 
-<!-- ---- TOPIC: TRANSLATION & PROGRAMMING CONCEPTS ---- -->
+<!-- TRANSLATION & CONCEPTS -->
 <div class="topic-group" data-sec="C" id="tg-concepts">
   <div class="topic-header">
     <div class="topic-icon" style="background:rgba(163,113,247,0.15);">📚</div>
     <div>
       <div class="topic-title" style="color:var(--prog);">TRANSLATION, ERRORS &amp; PROGRAMMING STYLE</div>
-      <div style="font-size:12px;color:var(--muted);">Compilers · Interpreters · Errors · Linking · Good style</div>
+      <div style="font-size:12px;color:var(--muted);">Compilers · Interpreters · Translation stages · Errors · Debugging · Paradigms</div>
     </div>
-    <div class="topic-desc">Section C</div>
+    <div class="topic-desc">Section C &nbsp;<span class="repeat-badge">4/5 YEARS</span></div>
   </div>
 
-  <!-- Assembly and linking 2017 -->
-  <div class="q-card" data-sec="C" data-year="2017">
-    <div class="q-header" onclick="toggle(this.parentElement)">
-      <div class="q-num">Q5b</div>
-      <div class="q-text">Explain how the <strong>assembly and linking process</strong> allows code written in high-level programming languages to run on a wide range of machines. <em>[3 marks]</em></div>
-      <div class="q-meta"><span class="marks-badge">3 marks</span><span class="year-tag">2017</span><span class="toggle-icon">›</span></div>
-    </div>
-    <div class="q-panels">
-      <div class="panel answer-panel">
-        <div class="panel-header" onclick="togglePanel(this.parentElement)"><span>✓ Full Answer</span><span class="arrow">▾</span></div>
-        <div class="panel-body">
-          High-level source code is first compiled to <strong>assembly language</strong> (a human-readable, low-level representation). An <strong>assembler</strong> then converts this to <strong>object code</strong> (machine-specific binary).<br><br>
-          The <strong>linker</strong> combines multiple object files and resolves references to library functions, producing a complete <strong>executable</strong> in machine code for the target platform.<br><br>
-          Different compilers/assemblers exist for different hardware architectures (x86, ARM, etc.), so the same high-level source can be recompiled for any target machine — enabling portability.
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Programming style 2017 -->
-  <div class="q-card" data-sec="C" data-year="2017">
-    <div class="q-header" onclick="toggle(this.parentElement)">
-      <div class="q-num">Q6a–b</div>
-      <div class="q-text">(a) List TWO ways good programming style can be maintained and explain why EACH is important. (b) List THREE stages in the translation process. <em>[7 marks]</em></div>
-      <div class="q-meta"><span class="marks-badge">7 marks</span><span class="year-tag">2017</span><span class="toggle-icon">›</span></div>
-    </div>
-    <div class="q-panels">
-      <div class="panel answer-panel">
-        <div class="panel-header" onclick="togglePanel(this.parentElement)"><span>✓ Full Answer</span><span class="arrow">▾</span></div>
-        <div class="panel-body">
-          <strong>(a) Good programming style:</strong><br>
-          1. <em>Comments/documentation:</em> Explain the purpose of code sections. Important because it makes code easier to maintain, debug, and understand by other programmers (or yourself later).<br>
-          2. <em>Meaningful variable/function names:</em> Names like <code>calculateTax()</code> rather than <code>ct()</code>. Important because it makes code self-documenting and reduces misunderstandings.<br>
-          (Also: consistent indentation, modular design, avoiding magic numbers)<br><br>
-          <strong>(b) THREE stages in translation:</strong><br>
-          1. <strong>Lexical analysis</strong> — tokenizes source code into meaningful symbols<br>
-          2. <strong>Syntax analysis (parsing)</strong> — checks grammatical structure against language grammar<br>
-          3. <strong>Code generation</strong> — produces target machine/object code<br>
-          (Also: semantic analysis, optimization)
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- semantic error 2018 -->
-  <div class="q-card" data-sec="C" data-year="2018">
-    <div class="q-header" onclick="toggle(this.parentElement)">
-      <div class="q-num">Q5a–b</div>
-      <div class="q-text">(a) Define '<strong>semantic error</strong>'. (b) State TWO strategies for <strong>debugging</strong> code. <em>[4 marks]</em></div>
-      <div class="q-meta"><span class="marks-badge">4 marks</span><span class="year-tag">2018</span><span class="toggle-icon">›</span></div>
-    </div>
-    <div class="q-panels">
-      <div class="panel answer-panel">
-        <div class="panel-header" onclick="togglePanel(this.parentElement)"><span>✓ Full Answer</span><span class="arrow">▾</span></div>
-        <div class="panel-body">
-          <strong>(a) Semantic error:</strong> An error where the code is syntactically correct (it compiles/runs) but produces an incorrect or unintended result because the logic does not match what was intended. Example: using <code>+</code> instead of <code>*</code> in a calculation.<br><br>
-          <strong>(b) Debugging strategies:</strong><br>
-          1. <em>Tracing/dry-running:</em> Manually walking through the code step by step, tracking variable values to find where the logic goes wrong.<br>
-          2. <em>Using a debugger tool:</em> Setting breakpoints in an IDE and stepping through execution to inspect variable states at runtime.<br>
-          (Also: print statements, unit testing, code review)
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- compiler vs interpreter 2018 -->
-  <div class="q-card" data-sec="C" data-year="2018">
+  <!-- Compiler vs interpreter — appears 4 times -->
+  <div class="q-card repeat-q" data-sec="C" data-year="2018">
     <div class="q-header" onclick="toggle(this.parentElement)">
       <div class="q-num">Q6c</div>
       <div class="q-text">Distinguish between a <strong>compiler</strong> and an <strong>interpreter</strong> in terms of translation and execution. <em>[4 marks]</em></div>
-      <div class="q-meta"><span class="marks-badge">4 marks</span><span class="year-tag">2018</span><span class="toggle-icon">›</span></div>
+      <div class="q-meta"><span class="marks-badge">4 marks</span><span class="year-tag">2018</span><span class="repeat-badge">4 YEARS</span><span class="toggle-icon">›</span></div>
     </div>
     <div class="q-panels">
+      <div class="panel repeat-panel">
+        <div class="panel-header" onclick="togglePanel(this.parentElement)"><span>🔁 Pattern Alert</span><span class="arrow">▾</span></div>
+        <div class="panel-body">Compiler vs interpreter asked in 2017, 2018, 2021, and 2023. This is one of the most reliable questions on the paper.</div>
+      </div>
       <div class="panel answer-panel">
         <div class="panel-header" onclick="togglePanel(this.parentElement)"><span>✓ Full Answer</span><span class="arrow">▾</span></div>
         <div class="panel-body">
-          <table>
-            <tr><th>Aspect</th><th>Compiler</th><th>Interpreter</th></tr>
-            <tr><td>Translation</td><td>Translates the ENTIRE program at once before execution</td><td>Translates and executes one statement at a time</td></tr>
-            <tr><td>Execution</td><td>Produces standalone executable; runs without compiler present</td><td>Requires the interpreter present every time the program runs</td></tr>
-            <tr><td>Speed</td><td>Faster execution (pre-compiled)</td><td>Slower (translates during execution)</td></tr>
-            <tr><td>Errors</td><td>All syntax errors reported before any execution</td><td>Stops at first error encountered during execution</td></tr>
-          </table>
+          <table><tr><th>Aspect</th><th>Compiler</th><th>Interpreter</th></tr><tr><td>Translation</td><td>Translates ENTIRE program before execution</td><td>Translates one statement at a time during execution</td></tr><tr><td>Output</td><td>Produces standalone executable</td><td>No permanent executable; needs interpreter each run</td></tr><tr><td>Speed</td><td>Faster execution</td><td>Slower (translates on-the-fly)</td></tr><tr><td>Errors</td><td>All syntax errors reported before any execution</td><td>Stops at first error encountered</td></tr></table>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- linking process 2021 -->
-  <div class="q-card" data-sec="C" data-year="2021">
+  <!-- 2023 Q5a compiler interpreter 2 differences -->
+  <div class="q-card repeat-q" data-sec="C" data-year="2023">
+    <div class="q-header" onclick="toggle(this.parentElement)">
+      <div class="q-num">Q5a(i)</div>
+      <div class="q-text">State <strong>TWO differences</strong> between a compiler and an interpreter. <em>[4 marks]</em></div>
+      <div class="q-meta"><span class="marks-badge">4 marks</span><span class="year-tag">2023</span><span class="repeat-badge">REPEAT</span><span class="toggle-icon">›</span></div>
+    </div>
+    <div class="q-panels">
+      <div class="panel answer-panel">
+        <div class="panel-header" onclick="togglePanel(this.parentElement)"><span>✓ Full Answer</span><span class="arrow">▾</span></div>
+        <div class="panel-body">
+          1. A compiler translates the entire source program into machine code before execution; an interpreter translates and executes one statement at a time.<br><br>
+          2. A compiled program runs without needing the compiler present; an interpreted program requires the interpreter to be present every time it runs.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2023 Q5a(ii) assembly and linking -->
+  <div class="q-card repeat-q" data-sec="C" data-year="2023">
+    <div class="q-header" onclick="toggle(this.parentElement)">
+      <div class="q-num">Q5a(ii)</div>
+      <div class="q-text">Explain how the <strong>assembly and linking</strong> processes allow code written in high-level languages to run on a wide range of machines. <em>[3 marks]</em></div>
+      <div class="q-meta"><span class="marks-badge">3 marks</span><span class="year-tag">2023</span><span class="repeat-badge">REPEAT</span><span class="toggle-icon">›</span></div>
+    </div>
+    <div class="q-panels">
+      <div class="panel answer-panel">
+        <div class="panel-header" onclick="togglePanel(this.parentElement)"><span>✓ Full Answer</span><span class="arrow">▾</span></div>
+        <div class="panel-body">
+          High-level source code is compiled to <strong>assembly language</strong>, then an <strong>assembler</strong> converts it to platform-specific <strong>object code</strong>. The <strong>linker</strong> combines object files and resolves library references into a complete machine-code executable for the target platform. Different compilers exist for different architectures (x86, ARM), so the same high-level source can be recompiled for any machine — achieving portability.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2022 Q5a translation stages -->
+  <div class="q-card repeat-q" data-sec="C" data-year="2022">
     <div class="q-header" onclick="toggle(this.parentElement)">
       <div class="q-num">Q5a</div>
-      <div class="q-text">Describe how the <strong>linking process</strong> relates to source, object and machine code. <em>[3 marks]</em></div>
-      <div class="q-meta"><span class="marks-badge">3 marks</span><span class="year-tag">2021</span><span class="toggle-icon">›</span></div>
+      <div class="q-text">Briefly describe <strong>ANY TWO stages</strong> of the program translation process. <em>[4 marks]</em></div>
+      <div class="q-meta"><span class="marks-badge">4 marks</span><span class="year-tag">2022</span><span class="repeat-badge">REPEAT</span><span class="toggle-icon">›</span></div>
     </div>
     <div class="q-panels">
       <div class="panel answer-panel">
         <div class="panel-header" onclick="togglePanel(this.parentElement)"><span>✓ Full Answer</span><span class="arrow">▾</span></div>
         <div class="panel-body">
-          <strong>Source code</strong> (high-level, human-readable, e.g. C) is compiled by a compiler to produce <strong>object code</strong> (binary, but incomplete — unresolved references to library functions/other modules).<br><br>
-          The <strong>linker</strong> combines one or more object code files, resolves all external references (e.g. calls to <code>printf()</code> from the C standard library), and produces a complete <strong>machine code</strong> executable that can be directly loaded and run by the processor.
+          <strong>1. Lexical Analysis:</strong> Scans source code and breaks it into tokens (keywords, identifiers, operators). Removes whitespace and comments. Reports unrecognised symbols.<br><br>
+          <strong>2. Syntax Analysis (Parsing):</strong> Checks that the sequence of tokens conforms to the grammar rules of the programming language; builds a parse tree. Reports syntax errors.<br><br>
+          (Also acceptable: Semantic analysis — checks meaning/types; Code generation — produces target machine code; Optimisation — improves efficiency of generated code)
         </div>
       </div>
     </div>
   </div>
 
-  <!-- programming paradigms 2021 -->
-  <div class="q-card" data-sec="C" data-year="2021">
+  <!-- 2022 Q5b good programming style -->
+  <div class="q-card repeat-q" data-sec="C" data-year="2022">
     <div class="q-header" onclick="toggle(this.parentElement)">
-      <div class="q-num">Q6a–b</div>
-      <div class="q-text">(a) Using ONE example for EACH, briefly describe any TWO programming paradigms. (b) State TWO reasons why using <strong>modular code</strong> is good programming style. <em>[8 marks]</em></div>
-      <div class="q-meta"><span class="marks-badge">8 marks</span><span class="year-tag">2021</span><span class="toggle-icon">›</span></div>
+      <div class="q-num">Q5b</div>
+      <div class="q-text">Explain <strong>TWO ways</strong> in which good programming style can be maintained when writing code. <em>[4 marks]</em></div>
+      <div class="q-meta"><span class="marks-badge">4 marks</span><span class="year-tag">2022</span><span class="repeat-badge">REPEAT</span><span class="toggle-icon">›</span></div>
     </div>
     <div class="q-panels">
+      <div class="panel repeat-panel">
+        <div class="panel-header" onclick="togglePanel(this.parentElement)"><span>🔁 Pattern Alert</span><span class="arrow">▾</span></div>
+        <div class="panel-body">Programming style asked in 2017, 2022, and indirectly 2023. Always give TWO different practices with clear explanations of WHY each matters.</div>
+      </div>
       <div class="panel answer-panel">
         <div class="panel-header" onclick="togglePanel(this.parentElement)"><span>✓ Full Answer</span><span class="arrow">▾</span></div>
         <div class="panel-body">
-          <strong>(a) Two programming paradigms:</strong><br>
-          1. <em>Procedural/Imperative:</em> Programs are sequences of instructions that change state. Example: a C program with functions like <code>calculateTax()</code> called in sequence. Code is organized around procedures/functions.<br><br>
-          2. <em>Object-Oriented (OOP):</em> Programs are organized around objects that encapsulate data and behaviour. Example: a Java program with a <code>Car</code> class having attributes (speed, colour) and methods (accelerate(), brake()). Supports inheritance, encapsulation and polymorphism.<br><br>
-          (Also acceptable: Functional — functions as first-class citizens, no side effects, e.g. Haskell; Declarative — describe WHAT to do rather than HOW, e.g. SQL)<br><br>
-          <strong>(b) Modular code — two reasons:</strong><br>
-          1. <em>Reusability:</em> A module/function written once can be called from multiple places in the program or reused in other projects, reducing code duplication.<br>
-          2. <em>Easier maintenance/debugging:</em> Smaller, self-contained modules are easier to test, understand and fix in isolation without affecting other parts of the program.
+          <strong>1. Meaningful variable and function names:</strong> Using descriptive names like <code>calculateTax()</code> instead of <code>ct()</code> makes code self-documenting, easier to read, understand and maintain.<br><br>
+          <strong>2. Comments and documentation:</strong> Inline comments explaining the purpose of complex code sections help other programmers (and your future self) understand the logic without having to re-read every line in detail.
         </div>
       </div>
     </div>
   </div>
 
-</div><!-- end concepts topic -->
+  <!-- 2023 Q6a semantic errors -->
+  <div class="q-card repeat-q" data-sec="C" data-year="2023">
+    <div class="q-header" onclick="toggle(this.parentElement)">
+      <div class="q-num">Q6a</div>
+      <div class="q-text">Describe what is meant by the term '<strong>semantic errors</strong>'. <em>[2 marks]</em></div>
+      <div class="q-meta"><span class="marks-badge">2 marks</span><span class="year-tag">2023</span><span class="repeat-badge">REPEAT</span><span class="toggle-icon">›</span></div>
+    </div>
+    <div class="q-panels">
+      <div class="panel answer-panel">
+        <div class="panel-header" onclick="togglePanel(this.parentElement)"><span>✓ Full Answer</span><span class="arrow">▾</span></div>
+        <div class="panel-body">
+          A semantic error occurs when code is syntactically correct (it compiles/runs without error messages) but the <strong>meaning or logic is wrong</strong>, producing incorrect results. Example: writing <code>average = total / 9</code> when there are 10 values.
+        </div>
+      </div>
+    </div>
+  </div>
 
+  <!-- 2023 Q6b watch in programming -->
+  <div class="q-card" data-sec="C" data-year="2023">
+    <div class="q-header" onclick="toggle(this.parentElement)">
+      <div class="q-num">Q6b</div>
+      <div class="q-text">State the role of a '<strong>watch</strong>' in programming. <em>[1 mark]</em></div>
+      <div class="q-meta"><span class="marks-badge">1 mark</span><span class="year-tag">2023</span><span class="toggle-icon">›</span></div>
+    </div>
+    <div class="q-panels">
+      <div class="panel answer-panel">
+        <div class="panel-header" onclick="togglePanel(this.parentElement)"><span>✓ Full Answer</span><span class="arrow">▾</span></div>
+        <div class="panel-body">A watch is a debugging feature that allows a programmer to <strong>monitor the value of a specific variable</strong> in real time as a program executes, so they can observe when and how it changes.</div>
+      </div>
+    </div>
+  </div>
 
+  <!-- 2022 Q6a declarative vs imperative -->
+  <div class="q-card" data-sec="C" data-year="2022">
+    <div class="q-header" onclick="toggle(this.parentElement)">
+      <div class="q-num">Q6a</div>
+      <div class="q-text">Differentiate between '<strong>declarative</strong>' and '<strong>imperative</strong>' programming languages. <em>[2 marks]</em></div>
+      <div class="q-meta"><span class="marks-badge">2 marks</span><span class="year-tag">2022</span><span class="toggle-icon">›</span></div>
+    </div>
+    <div class="q-panels">
+      <div class="panel answer-panel">
+        <div class="panel-header" onclick="togglePanel(this.parentElement)"><span>✓ Full Answer</span><span class="arrow">▾</span></div>
+        <div class="panel-body">
+          <strong>Declarative:</strong> Describes <em>what</em> should be computed without specifying how. The programmer states the desired result and the system determines how to achieve it. Example: SQL (<code>SELECT name FROM students WHERE grade = 'A'</code>).<br><br>
+          <strong>Imperative:</strong> Specifies <em>how</em> a computation should be carried out — a sequence of statements that change program state. Example: C, Java.
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end concepts -->
+
+<!-- ============================================================ MOCK TEST ============================================================ -->
 <div class="mock-test-section" id="mock-test">
   <div class="topic-header">
     <div class="topic-icon" style="background:rgba(45,108,223,0.12);">📝</div>
     <div>
-      <div class="topic-title" style="color:var(--blue);">NEW PRACTICE TEST</div>
-      <div style="font-size:12px;color:var(--muted);">Built from the patterns that keep showing up across the past questions in this guide</div>
+      <div class="topic-title" style="color:var(--blue);">UPDATED PRACTICE TEST — 2024 Predictions</div>
+      <div style="font-size:12px;color:var(--muted);">Questions modelled on the highest-frequency patterns across all five years</div>
     </div>
     <div class="topic-desc">Fresh practice</div>
   </div>
 
   <div class="mock-meta">
-    <div class="mock-chip"><strong>Format</strong><span>6 mixed questions across Architecture, Problem Solving and Programming</span></div>
-    <div class="mock-chip"><strong>Best use</strong><span>Try it closed-book first, then open the hint, then finally check the model answer</span></div>
-    <div class="mock-chip"><strong>Estimated time</strong><span>35–45 minutes</span></div>
+    <div class="mock-chip"><strong>Format</strong><span>8 questions across Architecture, Problem Solving and Programming</span></div>
+    <div class="mock-chip"><strong>Best use</strong><span>Try closed-book first, then open hint, then check model answer</span></div>
+    <div class="mock-chip"><strong>Estimated time</strong><span>45–55 minutes</span></div>
   </div>
 
+  <!-- Mock 1: FP encoding (2017, 2021, 2023 pattern) -->
   <div class="q-card" data-sec="A" data-year="mock">
     <div class="q-header" onclick="toggle(this.parentElement)">
       <div class="q-num">Mock 1</div>
-      <div class="q-text">Using <strong>8-bit two's complement</strong>, determine the binary representation of <strong>−37</strong>. Then state whether <strong>−37 + (−95)</strong> causes overflow. <em>[6 marks]</em></div>
-      <div class="q-meta"><span class="marks-badge">6 marks</span><span class="year-tag">NEW</span><span class="toggle-icon">›</span></div>
+      <div class="q-text">Represent the decimal number <strong>−6.25</strong> in binary floating point using: 1-bit sign, 3-bit exponent (two's complement), 5-bit mantissa. Show all working. <em>[5 marks]</em></div>
+      <div class="q-meta"><span class="marks-badge">5 marks</span><span class="year-tag">NEW</span><span class="repeat-badge">REPEAT TYPE</span><span class="toggle-icon">›</span></div>
     </div>
     <div class="q-panels">
       <div class="panel hint-panel">
         <div class="panel-header" onclick="togglePanel(this.parentElement)"><span>💡 Hint</span><span class="arrow">▾</span></div>
-        <div class="panel-body">
-          Start with <code>+37</code> in 8-bit binary. Invert the bits and add 1 to get <code>−37</code>. For the addition, first think about the 8-bit two's complement range: <strong>−128 to +127</strong>.</div>
+        <div class="panel-body">6.25 in binary = 110.01. Normalise so binary point is immediately left of first significant digit: 0.11001 × 2³. Sign=1 (negative), Exponent=3 (011), Mantissa=11001.</div>
       </div>
       <div class="panel answer-panel">
         <div class="panel-header" onclick="togglePanel(this.parentElement)"><span>✓ Model Answer</span><span class="arrow">▾</span></div>
         <div class="panel-body">
-          <strong>Step 1:</strong> <code>+37 = 00100101</code><br>
-          Invert bits → <code>11011010</code><br>
-          Add 1 → <code class="highlight">11011011</code><br><br>
-          So, <strong>−37 = 11011011</strong> in 8-bit two's complement.<br><br>
-          <strong>Step 2:</strong> Check <code>−37 + (−95)</code><br>
-          Decimal result = <code>−132</code><br>
-          But 8-bit two's complement only stores values from <strong>−128 to +127</strong>.<br><br>
-          Therefore, the operation <strong class="warn">causes overflow</strong> because the true answer is outside the allowed range.
+          6.25 = 110.01<sub>2</sub> = 0.11001 × 2<sup>3</sup><br>
+          Sign = <span class="warn">1</span> (negative)<br>
+          Exponent = 3 = <code>011</code><br>
+          Mantissa = <code>11001</code><br><br>
+          Full: <code class="highlight">1 011 11001</code>
         </div>
       </div>
     </div>
   </div>
 
+  <!-- Mock 2: truth table circuit -->
   <div class="q-card" data-sec="A" data-year="mock">
     <div class="q-header" onclick="toggle(this.parentElement)">
       <div class="q-num">Mock 2</div>
-      <div class="q-text">Construct the truth table for <strong>F = x'y + xy'</strong>. Name the logic behaviour represented by this expression. <em>[5 marks]</em></div>
-      <div class="q-meta"><span class="marks-badge">5 marks</span><span class="year-tag">NEW</span><span class="toggle-icon">›</span></div>
+      <div class="q-text">Construct the truth table for <strong>Z = (A NAND B) AND (A NOR B)</strong>. Show all intermediate steps. <em>[6 marks]</em></div>
+      <div class="q-meta"><span class="marks-badge">6 marks</span><span class="year-tag">NEW</span><span class="repeat-badge">REPEAT TYPE</span><span class="toggle-icon">›</span></div>
     </div>
     <div class="q-panels">
-      <div class="panel hint-panel">
-        <div class="panel-header" onclick="togglePanel(this.parentElement)"><span>💡 Hint</span><span class="arrow">▾</span></div>
-        <div class="panel-body">List the four input pairs: <code>00</code>, <code>01</code>, <code>10</code>, <code>11</code>. The output is 1 when the two inputs are different.</div>
-      </div>
       <div class="panel answer-panel">
         <div class="panel-header" onclick="togglePanel(this.parentElement)"><span>✓ Model Answer</span><span class="arrow">▾</span></div>
         <div class="panel-body">
-          <table>
-            <tr><th>x</th><th>y</th><th>x'</th><th>y'</th><th>x'y</th><th>xy'</th><th>F</th></tr>
-            <tr><td>0</td><td>0</td><td>1</td><td>1</td><td>0</td><td>0</td><td>0</td></tr>
-            <tr><td>0</td><td>1</td><td>1</td><td>0</td><td>1</td><td>0</td><td class="highlight">1</td></tr>
-            <tr><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td><td>1</td><td class="highlight">1</td></tr>
-            <tr><td>1</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-          </table>
-          This is the behaviour of the <strong>XOR (exclusive OR)</strong> gate because the output is 1 only when the inputs are different.
+          NAND(A,B) = NOT(A AND B). NOR(A,B) = NOT(A OR B).
+          <table><tr><th>A</th><th>B</th><th>A∧B</th><th>NAND</th><th>A∨B</th><th>NOR</th><th>Z</th></tr>
+          <tr><td>0</td><td>0</td><td>0</td><td>1</td><td>0</td><td class="highlight">1</td><td class="highlight">1</td></tr>
+          <tr><td>0</td><td>1</td><td>0</td><td>1</td><td>1</td><td>0</td><td>0</td></tr>
+          <tr><td>1</td><td>0</td><td>0</td><td>1</td><td>1</td><td>0</td><td>0</td></tr>
+          <tr><td>1</td><td>1</td><td>1</td><td>0</td><td>1</td><td>0</td><td>0</td></tr></table>
+          Z is 1 only when both inputs are 0 (NOR behaviour for Z).
         </div>
       </div>
     </div>
   </div>
 
+  <!-- Mock 3: algorithm errors -->
   <div class="q-card" data-sec="B" data-year="mock">
     <div class="q-header" onclick="toggle(this.parentElement)">
       <div class="q-num">Mock 3</div>
-      <div class="q-text">Write an algorithm or pseudocode to input <strong>10 test scores</strong>, calculate the <strong>average</strong>, and display the <strong>highest score</strong>. <em>[7 marks]</em></div>
-      <div class="q-meta"><span class="marks-badge">7 marks</span><span class="year-tag">NEW</span><span class="toggle-icon">›</span></div>
+      <div class="q-text">The algorithm below is designed to print only <strong>odd numbers from 1 to 20</strong>. Identify the THREE errors and provide corrections. <em>[6 marks]</em><br><br>
+        <code>1. i = 0</code><br><code>2. while i &lt; 20</code><br><code>3. &nbsp;&nbsp;if i MOD 2 = 0 then</code><br><code>4. &nbsp;&nbsp;&nbsp;&nbsp;print i</code><br><code>5. &nbsp;&nbsp;endif</code><br><code>6. &nbsp;&nbsp;i = i + 1</code><br><code>7. end while</code>
+      </div>
+      <div class="q-meta"><span class="marks-badge">6 marks</span><span class="year-tag">NEW</span><span class="repeat-badge">REPEAT TYPE</span><span class="toggle-icon">›</span></div>
     </div>
     <div class="q-panels">
-      <div class="panel hint-panel">
-        <div class="panel-header" onclick="togglePanel(this.parentElement)"><span>💡 Hint</span><span class="arrow">▾</span></div>
-        <div class="panel-body">You need a loop, a running total, and one variable to track the current highest value. Initialize the highest score with the first input or with a very small number.</div>
-      </div>
       <div class="panel answer-panel">
         <div class="panel-header" onclick="togglePanel(this.parentElement)"><span>✓ Model Answer</span><span class="arrow">▾</span></div>
         <div class="panel-body">
-<pre>SET total TO 0
-INPUT score
-SET highest TO score
-SET total TO total + score
-
-FOR count = 2 TO 10
-    INPUT score
-    SET total TO total + score
-    IF score &gt; highest THEN
-        SET highest TO score
-    ENDIF
-ENDFOR
-
-SET average TO total / 10
-OUTPUT average
-OUTPUT highest</pre>
-          Any equivalent correct pseudocode/algorithm earns credit once it clearly shows <strong>input</strong>, <strong>looping</strong>, <strong>total accumulation</strong>, <strong>comparison</strong>, and <strong>final output</strong>.
+          <strong>Error 1 — Line 1: <code>i = 0</code></strong><br>
+          Should be <code>i = 1</code> — we want to start from 1, not 0.<br><br>
+          <strong>Error 2 — Line 2: <code>while i &lt; 20</code></strong><br>
+          Should be <code>while i &lt;= 20</code> — 20 should be checked but is even; however 19 (odd) must be included.<br><br>
+          <strong>Error 3 — Line 3: <code>if i MOD 2 = 0</code></strong><br>
+          Should be <code>if i MOD 2 ≠ 0</code> (or <code>= 1</code>) — condition selects even numbers but we want odd.
         </div>
       </div>
     </div>
   </div>
 
+  <!-- Mock 4: pseudocode billing -->
   <div class="q-card" data-sec="B" data-year="mock">
     <div class="q-header" onclick="toggle(this.parentElement)">
       <div class="q-num">Mock 4</div>
-      <div class="q-text">Trace the following algorithm and state the final values of <strong>X</strong> and <strong>Y</strong> after it executes. <em>[4 marks]</em><br><br><code>SET X TO 4</code><br><code>SET Y TO 1</code><br><code>FOR COUNT = 1 TO 3</code><br><code>&nbsp;&nbsp;SET Y TO Y * X</code><br><code>&nbsp;&nbsp;SET X TO X - 1</code><br><code>ENDFOR</code></div>
-      <div class="q-meta"><span class="marks-badge">4 marks</span><span class="year-tag">NEW</span><span class="toggle-icon">›</span></div>
+      <div class="q-text">A pharmacy charges: Prescription drugs $15 each (10% loyalty discount if member), Over-the-counter drugs $8 each (no discount). Write pseudocode for a single customer: display menu, read choice and quantity, compute bill, add 12.5% VAT. <em>[10 marks]</em></div>
+      <div class="q-meta"><span class="marks-badge">10 marks</span><span class="year-tag">NEW</span><span class="repeat-badge">REPEAT TYPE</span><span class="toggle-icon">›</span></div>
     </div>
     <div class="q-panels">
-      <div class="panel hint-panel">
-        <div class="panel-header" onclick="togglePanel(this.parentElement)"><span>💡 Hint</span><span class="arrow">▾</span></div>
-        <div class="panel-body">Make a small trace table with columns for <strong>COUNT</strong>, <strong>X</strong>, and <strong>Y</strong>. Update <strong>Y</strong> first, then reduce <strong>X</strong> by 1 on each loop.</div>
-      </div>
       <div class="panel answer-panel">
         <div class="panel-header" onclick="togglePanel(this.parentElement)"><span>✓ Model Answer</span><span class="arrow">▾</span></div>
         <div class="panel-body">
-          Initial values: <strong>X = 4</strong>, <strong>Y = 1</strong><br><br>
-          <table>
-            <tr><th>COUNT</th><th>Y = Y × X</th><th>X = X − 1</th></tr>
-            <tr><td>1</td><td>Y = 1 × 4 = 4</td><td>X = 3</td></tr>
-            <tr><td>2</td><td>Y = 4 × 3 = 12</td><td>X = 2</td></tr>
-            <tr><td>3</td><td>Y = 12 × 2 = 24</td><td>X = 1</td></tr>
-          </table>
-          Therefore, the final values are <strong class="highlight">X = 1</strong> and <strong class="highlight">Y = 24</strong>.
+<div class="algo">DISPLAY "1. Prescription drugs ($15 each)"
+DISPLAY "2. Over-the-counter drugs ($8 each)"
+DISPLAY "3. Exit"
+INPUT menuOption
+
+IF menuOption = 3 THEN STOP ENDIF
+
+INPUT quantity
+INPUT memberStatus   // "Y" or "N"
+
+IF menuOption = 1 THEN
+    bill = quantity * 15
+    IF memberStatus = "Y" THEN
+        bill = bill * 0.90   // 10% discount
+    ENDIF
+ELSE IF menuOption = 2 THEN
+    bill = quantity * 8
+ENDIF
+
+bill = bill + (bill * 0.125)   // add 12.5% VAT
+DISPLAY "Total bill: $", bill</div>
         </div>
       </div>
     </div>
   </div>
 
+  <!-- Mock 5: C struct + function -->
   <div class="q-card" data-sec="C" data-year="mock">
     <div class="q-header" onclick="toggle(this.parentElement)">
       <div class="q-num">Mock 5</div>
-      <div class="q-text">Differentiate between a <strong>syntax error</strong>, a <strong>semantic error</strong>, and a <strong>logic error</strong>. Give one example of each. <em>[6 marks]</em></div>
-      <div class="q-meta"><span class="marks-badge">6 marks</span><span class="year-tag">NEW</span><span class="toggle-icon">›</span></div>
+      <div class="q-text">(i) Write a C struct <code>Employee</code> with: ID (int), name (char[30]), salary (float). (ii) Declare a variable <code>emp1</code>. (iii) Write C code to read values into <code>emp1</code> from keyboard. (iv) Write a function <code>applyRaise(Employee e, float percent)</code> that returns the new salary. <em>[10 marks]</em></div>
+      <div class="q-meta"><span class="marks-badge">10 marks</span><span class="year-tag">NEW</span><span class="repeat-badge">REPEAT TYPE</span><span class="toggle-icon">›</span></div>
     </div>
     <div class="q-panels">
-      <div class="panel hint-panel">
-        <div class="panel-header" onclick="togglePanel(this.parentElement)"><span>💡 Hint</span><span class="arrow">▾</span></div>
-        <div class="panel-body">Think in this order: <strong>Does the code follow the language rules?</strong> <strong>Does it make legal sense to the translator/runtime?</strong> <strong>Does it produce the right result?</strong></div>
-      </div>
       <div class="panel answer-panel">
         <div class="panel-header" onclick="togglePanel(this.parentElement)"><span>✓ Model Answer</span><span class="arrow">▾</span></div>
-        <div class="panel-body">
-          <ul class="answer-list">
-            <li><strong>Syntax error:</strong> breaks the grammar rules of the language, so the program will not compile or interpret correctly. <em>Example:</em> missing semicolon or unmatched bracket.</li>
-            <li><strong>Semantic error:</strong> the statement is written in a grammatically correct way, but its meaning is invalid for that context. <em>Example:</em> trying to divide a string by a number, or assigning a value of the wrong type where the language disallows it.</li>
-            <li><strong>Logic error:</strong> the program runs, but the algorithm is wrong, so the final answer is incorrect. <em>Example:</em> using <code>average = total / 9</code> when there are actually 10 values.</li>
-          </ul>
+        <div class="panel-body"><pre>/* (i) Struct declaration */
+struct Employee {
+    int id;
+    char name[30];
+    float salary;
+};
+
+/* (ii) Declare variable */
+struct Employee emp1;
+
+/* (iii) Read values */
+scanf("%d", &emp1.id);
+scanf("%s", emp1.name);   /* no & for arrays */
+scanf("%f", &emp1.salary);
+
+/* (iv) Apply raise */
+float applyRaise(struct Employee e, float percent) {
+    return e.salary * (1.0 + percent / 100.0);
+}</pre>
         </div>
       </div>
     </div>
   </div>
 
+  <!-- Mock 6: C array function -->
   <div class="q-card" data-sec="C" data-year="mock">
     <div class="q-header" onclick="toggle(this.parentElement)">
       <div class="q-num">Mock 6</div>
-      <div class="q-text">Explain the difference between a <strong>compiler</strong> and an <strong>interpreter</strong>, then state <strong>one advantage</strong> of each. <em>[5 marks]</em></div>
-      <div class="q-meta"><span class="marks-badge">5 marks</span><span class="year-tag">NEW</span><span class="toggle-icon">›</span></div>
+      <div class="q-text">Write a C function <code>countInRange</code> that accepts an integer array, its size, a lower bound and an upper bound, and returns the count of elements that fall <strong>within the range [lower, upper] inclusive</strong>. <em>[7 marks]</em></div>
+      <div class="q-meta"><span class="marks-badge">7 marks</span><span class="year-tag">NEW</span><span class="repeat-badge">REPEAT TYPE</span><span class="toggle-icon">›</span></div>
     </div>
     <div class="q-panels">
-      <div class="panel hint-panel">
-        <div class="panel-header" onclick="togglePanel(this.parentElement)"><span>💡 Hint</span><span class="arrow">▾</span></div>
-        <div class="panel-body">Focus on <strong>when translation happens</strong>, <strong>how execution happens</strong>, and <strong>what the user gets at the end</strong>.</div>
-      </div>
       <div class="panel answer-panel">
         <div class="panel-header" onclick="togglePanel(this.parentElement)"><span>✓ Model Answer</span><span class="arrow">▾</span></div>
-        <div class="panel-body">
-          A <strong>compiler</strong> translates the entire source program into object/machine code before execution. The result is usually an executable file. <strong>Advantage:</strong> once compiled, the program usually runs faster.<br><br>
-          An <strong>interpreter</strong> translates and executes the program one line or statement at a time. <strong>Advantage:</strong> it is easier to test and debug small sections because errors are reported as execution reaches them.
+        <div class="panel-body"><pre>int countInRange(int arr[], int size, int lower, int upper) {
+    int count = 0;
+    for (int i = 0; i < size; i++) {
+        if (arr[i] >= lower && arr[i] <= upper) {
+            count++;
+        }
+    }
+    return count;
+}</pre>
         </div>
       </div>
     </div>
   </div>
-</div>
+
+  <!-- Mock 7: two's complement + overflow -->
+  <div class="q-card" data-sec="A" data-year="mock">
+    <div class="q-header" onclick="toggle(this.parentElement)">
+      <div class="q-num">Mock 7</div>
+      <div class="q-text">Using <strong>8-bit two's complement</strong>, find the binary for −37, then state whether <strong>−37 + (−95)</strong> causes overflow. Show all working. <em>[6 marks]</em></div>
+      <div class="q-meta"><span class="marks-badge">6 marks</span><span class="year-tag">NEW</span><span class="repeat-badge">REPEAT TYPE</span><span class="toggle-icon">›</span></div>
+    </div>
+    <div class="q-panels">
+      <div class="panel answer-panel">
+        <div class="panel-header" onclick="togglePanel(this.parentElement)"><span>✓ Model Answer</span><span class="arrow">▾</span></div>
+        <div class="panel-body">
+          +37 = <code>00100101</code> → flip → <code>11011010</code> → +1 → <code class="highlight">11011011</code> = −37<br><br>
+          −37 + (−95) = −132. 8-bit two's complement range: −128 to +127.<br>
+          <span class="warn">Overflow occurs</span> — −132 is outside the representable range.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mock 8: compiler vs interpreter -->
+  <div class="q-card" data-sec="C" data-year="mock">
+    <div class="q-header" onclick="toggle(this.parentElement)">
+      <div class="q-num">Mock 8</div>
+      <div class="q-text">Differentiate between a <strong>syntax error</strong>, a <strong>semantic error</strong>, and a <strong>logic error</strong>. Give one example of each. <em>[6 marks]</em></div>
+      <div class="q-meta"><span class="marks-badge">6 marks</span><span class="year-tag">NEW</span><span class="repeat-badge">REPEAT TYPE</span><span class="toggle-icon">›</span></div>
+    </div>
+    <div class="q-panels">
+      <div class="panel answer-panel">
+        <div class="panel-header" onclick="togglePanel(this.parentElement)"><span>✓ Model Answer</span><span class="arrow">▾</span></div>
+        <div class="panel-body">
+          <strong>Syntax error:</strong> Breaks the grammatical rules of the language; prevents compilation. Example: missing semicolon <code>int x = 5</code><br><br>
+          <strong>Semantic error:</strong> Grammatically valid but meaningless to the runtime. Example: adding a string to an integer where types are incompatible, or dividing by zero intentionally stored in a variable.<br><br>
+          <strong>Logic error:</strong> Program runs successfully but produces wrong output. Example: <code>average = total / 9</code> when there are 10 values.
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end mock -->
 
 </main>
 
-<!-- Progress counter -->
 <div class="progress-bar" id="progressBar">
   <span id="openCount">0</span> / <span id="totalCount">0</span> questions opened
 </div>
 
 <script>
-  let currentYear = 'all';
-  let currentSec = 'ALL';
-  let currentSearch = '';
+  let currentYear = 'all', currentSec = 'ALL', currentSearch = '';
 
-  function toggle(card) {
-    card.classList.toggle('open');
-    updateProgress();
-  }
+  function toggle(card) { card.classList.toggle('open'); updateProgress(); }
+  function togglePanel(panel) { panel.classList.toggle('open'); }
 
-  function togglePanel(panel) {
-    panel.classList.toggle('open');
-  }
-
-  function filterYear(year, btn) {
-    currentYear = year;
-    document.querySelectorAll('.year-btn').forEach(b => b.classList.remove('active'));
-    if (btn) btn.classList.add('active');
-    applyFilters();
-  }
-
-  function filterSec(sec, btn) {
-    currentSec = sec;
-    document.querySelectorAll('.sec-btn').forEach(b => b.classList.remove('active'));
-    if (btn) btn.classList.add('active');
-    applyFilters();
-  }
-
-  function normalize(text) {
-    return (text || '').toLowerCase().replace(/\s+/g, ' ').trim();
-  }
+  function normalize(text) { return (text || '').toLowerCase().replace(/\s+/g,' ').trim(); }
 
   function applyFilters() {
     const search = normalize(currentSearch);
-
     document.querySelectorAll('.q-card').forEach(card => {
       const yearMatch = currentYear === 'all' || card.dataset.year === currentYear;
       const secMatch = currentSec === 'ALL' || card.dataset.sec === currentSec;
-      const text = normalize(card.innerText);
-      const searchMatch = !search || text.includes(search);
+      const searchMatch = !search || normalize(card.innerText).includes(search);
       card.classList.toggle('hidden', !(yearMatch && secMatch && searchMatch));
     });
-
     document.querySelectorAll('.topic-group').forEach(group => {
       const secMatch = currentSec === 'ALL' || group.dataset.sec === currentSec;
-      if (!secMatch) {
-        group.classList.add('hidden');
-        return;
-      }
+      if (!secMatch) { group.classList.add('hidden'); return; }
       const visible = [...group.querySelectorAll('.q-card')].some(c => !c.classList.contains('hidden'));
       group.classList.toggle('hidden', !visible);
     });
-
-    const mockSection = document.getElementById('mock-test');
-    if (mockSection) {
-      const visibleMockCards = [...mockSection.querySelectorAll('.q-card')].some(c => !c.classList.contains('hidden'));
-      mockSection.classList.toggle('hidden', !visibleMockCards);
+    const mock = document.getElementById('mock-test');
+    if (mock) {
+      const v = [...mock.querySelectorAll('.q-card')].some(c => !c.classList.contains('hidden'));
+      mock.classList.toggle('hidden', !v);
     }
-
     updateProgress();
   }
 
-  function expandAllVisible() {
-    document.querySelectorAll('.q-card:not(.hidden)').forEach(card => card.classList.add('open'));
-    updateProgress();
-  }
-
+  function expandAllVisible() { document.querySelectorAll('.q-card:not(.hidden)').forEach(c => c.classList.add('open')); updateProgress(); }
   function collapseAllVisible() {
-    document.querySelectorAll('.q-card').forEach(card => card.classList.remove('open'));
-    document.querySelectorAll('.panel').forEach(panel => panel.classList.remove('open'));
+    document.querySelectorAll('.q-card').forEach(c => c.classList.remove('open'));
+    document.querySelectorAll('.panel').forEach(p => p.classList.remove('open'));
     updateProgress();
   }
-
   function updateProgress() {
     const visible = [...document.querySelectorAll('.q-card:not(.hidden)')];
-    const open = visible.filter(c => c.classList.contains('open'));
-    document.getElementById('openCount').textContent = open.length;
+    document.getElementById('openCount').textContent = visible.filter(c => c.classList.contains('open')).length;
     document.getElementById('totalCount').textContent = visible.length;
   }
 
   document.querySelectorAll('.year-btn').forEach(btn => {
-    btn.addEventListener('click', () => filterYear(btn.textContent.includes('ALL') ? 'all' : btn.textContent.trim(), btn));
-  });
-
-  document.querySelectorAll('.sec-btn').forEach(btn => {
-    btn.addEventListener('click', () => filterSec(btn.dataset.sec, btn));
-  });
-
-  const searchBox = document.getElementById('searchBox');
-  if (searchBox) {
-    searchBox.addEventListener('input', (e) => {
-      currentSearch = e.target.value;
+    btn.addEventListener('click', () => {
+      currentYear = btn.textContent.includes('ALL') ? 'all' : btn.textContent.trim();
+      document.querySelectorAll('.year-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
       applyFilters();
     });
-  }
+  });
+  document.querySelectorAll('.sec-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      currentSec = btn.dataset.sec;
+      document.querySelectorAll('.sec-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      applyFilters();
+    });
+  });
+  const searchBox = document.getElementById('searchBox');
+  if (searchBox) searchBox.addEventListener('input', e => { currentSearch = e.target.value; applyFilters(); });
 
   updateProgress();
 </script>
